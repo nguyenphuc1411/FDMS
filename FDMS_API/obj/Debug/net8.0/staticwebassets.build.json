@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "MWAundTawV+zkaFUVlIPo9VrM2Vd8KHV9B/f1NmjCLI=",
+  "Source": "FDMS_API",
+  "BasePath": "_content/FDMS_API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "FDMS_API\\wwwroot",
+      "Source": "FDMS_API",
+      "ContentRoot": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\",
+      "BasePath": "_content/FDMS_API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
