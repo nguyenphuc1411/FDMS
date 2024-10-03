@@ -10,8 +10,13 @@ namespace FDMS_API.Data.Models
         public string? Note { get; set; }
         public DateTime Created_At { get; set; }= DateTime.Now;
 
-        // Foreign Key Link
+        // Foreign Property
+        public int UserID {  get; set; }
 
+        // Foreign Key Link
         public User User { get; set; }
+
+        public ICollection<Document> Documents { get; set; }
+        public ICollection<Type_GroupPermission> Type_GroupPermissions { get; set; }
     }
 }

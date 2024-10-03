@@ -16,9 +16,18 @@ namespace FDMS_API.Data.Models
         public string FilePath {  get; set; }
         public DateTime Created_At { get; set; } = DateTime.Now;
 
+        // Foreign property
+
+        public int TypeID { get; set; }
+        public int UserID { get; set; }
+        public int FlightID { get; set; }
+
         // Foreign Key Link
         public DocumentType DocumentType { get; set; }
         public User User { get; set; }
         public Flight Flight { get; set; }
+
+
+        public ICollection<DocumentPermission> DocumentPermissions { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 {
     public class DocumentPermission
     {
+        // Foreign property
         public int DocumentID { get; set; }
         public int GroupID { get; set; }
 

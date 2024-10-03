@@ -13,6 +13,10 @@ namespace FDMS_API.Data.Models
         public bool IsCaptchaRequired { get; set; }
         public DateTime Updated_At { get; set; }
 
+        // Foregin Property
+
+        public int UserID {  get; set; }
+
         // Foreign Key Link
 
         public User User { get; set; }

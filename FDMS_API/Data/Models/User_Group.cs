@@ -3,6 +3,7 @@ namespace FDMS_API.Data.Models
 {
     public class User_Group
     {    
+        // Foreign Property
         public int UserID {  get; set; }
         public int GroupID {  get; set; }
 

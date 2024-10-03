@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FDMS_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+833af133b5f8dd86365658967347252c61596ad7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8446b5ac6538cf011320e8859d90eb94d49d0b3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("FDMS_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FDMS_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

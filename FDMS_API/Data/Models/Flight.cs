@@ -18,7 +18,13 @@ namespace FDMS_API.Data.Models
         [Column(TypeName = "varchar(20)")]
         public string AircraftID { get; set; }
 
+        // Foreign Property
+        public int UserID {  get; set; }
+
         // Foreign Key Link
         public User User { get; set; }
+
+        public ICollection<Confirmation> Confirmations { get; set; }
+        public ICollection<Document> Documents { get; set; }
     }
 }
