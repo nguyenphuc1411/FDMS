@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Settings\\23449afc-5417-42bf-9032-93c8b05a57b2.png",
+      "PackagePath": "staticwebassets\\Images\\Settings\\23449afc-5417-42bf-9032-93c8b05a57b2.png"
+    },
+    {
+      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Settings\\4f35d73e-a8e8-49b5-8335-b921c88459af.png",
+      "PackagePath": "staticwebassets\\Images\\Settings\\4f35d73e-a8e8-49b5-8335-b921c88459af.png"
+    },
+    {
+      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Settings\\5086c44c-631e-4ca2-9a39-5ad751263af2.png",
+      "PackagePath": "staticwebassets\\Images\\Settings\\5086c44c-631e-4ca2-9a39-5ad751263af2.png"
+    },
+    {
+      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Settings\\69672fa9-09d3-415a-974b-48d856f47e17.png",
+      "PackagePath": "staticwebassets\\Images\\Settings\\69672fa9-09d3-415a-974b-48d856f47e17.png"
+    },
+    {
+      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Settings\\7964e25f-9a6e-4a68-b6a6-a45b96b6c818.png",
+      "PackagePath": "staticwebassets\\Images\\Settings\\7964e25f-9a6e-4a68-b6a6-a45b96b6c818.png"
+    },
+    {
+      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Settings\\89ff17ff-8d0d-448a-9c94-0935e1a02689.png",
+      "PackagePath": "staticwebassets\\Images\\Settings\\89ff17ff-8d0d-448a-9c94-0935e1a02689.png"
+    },
+    {
+      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Settings\\b8858834-93ea-45f7-a54b-16df1151c688.png",
+      "PackagePath": "staticwebassets\\Images\\Settings\\b8858834-93ea-45f7-a54b-16df1151c688.png"
+    },
+    {
+      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Settings\\c919caec-20ee-4842-b305-40479a21df0e.png",
+      "PackagePath": "staticwebassets\\Images\\Settings\\c919caec-20ee-4842-b305-40479a21df0e.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FDMS_API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.FDMS_API.props",
+      "PackagePath": "build\\FDMS_API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.FDMS_API.props",
+      "PackagePath": "buildMultiTargeting\\FDMS_API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.FDMS_API.props",
+      "PackagePath": "buildTransitive\\FDMS_API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

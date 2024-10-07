@@ -136,3 +136,7 @@ D:\Intern\FDMS_API\FDMS_API\obj\Debug\net8.0\FDMS_API.pdb
 D:\Intern\FDMS_API\FDMS_API\obj\Debug\net8.0\FDMS_API.genruntimeconfig.cache
 D:\Intern\FDMS_API\FDMS_API\obj\Debug\net8.0\ref\FDMS_API.dll
 D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\FDMS_API.staticwebassets.runtime.json
+D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\AutoMapper.dll
