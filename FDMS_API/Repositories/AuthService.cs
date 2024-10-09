@@ -1,4 +1,5 @@
 ﻿using FDMS_API.Data;
+using FDMS_API.Data.Models;
 using FDMS_API.DTOs;
 using FDMS_API.Extentions;
 using FDMS_API.Services;
@@ -48,8 +49,8 @@ namespace FDMS_API.Repositories
                         };
                     }
                     if (login.Password.VerifyPassword(user.PasswordHash))
-                    {
-                        string token = GenerateToken(user.UserID.ToString(),user.Email, user.Role, _config["JWT:Key"], _config["JWT:Issuer"], _config["JWT:Audience"]);
+                    {                     
+                        string token = GenerateToken(user, _config["JWT:Key"], _config["JWT:Issuer"], _config["JWT:Audience"]);
                         return new APIResponse<string>()
                         {
                             Success = true,
@@ -83,13 +84,13 @@ namespace FDMS_API.Repositories
             }
         }
 
-        public static string GenerateToken(string userid,string email,string role,string JWTkey,string issuer,string audience)
+        public static string GenerateToken(User user,string JWTkey,string issuer,string audience)
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier,userid),
-                new Claim(ClaimTypes.Email, email),
-                new Claim(ClaimTypes.Role,role)
+                new Claim(ClaimTypes.NameIdentifier,user.UserID.ToString()),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.Role,user.Role)
             };
             
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTkey));
@@ -99,7 +100,7 @@ namespace FDMS_API.Repositories
                 issuer: issuer,
                 audience:audience,
                 claims: claims,
-                expires: DateTime.Now.AddSeconds(20),
+                expires: DateTime.UtcNow.AddSeconds(20),
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

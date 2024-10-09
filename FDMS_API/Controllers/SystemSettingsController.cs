@@ -18,7 +18,7 @@ namespace FDMS_API.Controllers
             _service = service;
         }     
         [HttpPost]
-        public async Task<IActionResult> UploadImage([FromForm] SystemSettingDTO systemSettingDTO)
+        public async Task<IActionResult> CreateSystemSetting([FromForm] SystemSettingDTO systemSettingDTO)
         {
             if (ModelState.IsValid)
             {

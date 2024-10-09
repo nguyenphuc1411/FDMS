@@ -22,11 +22,11 @@ namespace FDMS_API.Data.Models
         // Foreign Key Link
         public ICollection<Flight> Flights { get; set; }
         public ICollection<Document> Documents { get; set; }
-        public ICollection<DocumentType> DocumentTypes { get; set; }
+        public ICollection<Type> Types { get; set; }
 
         public ICollection<Confirmation> Confirmations { get; set; }
         public ICollection<SystemSetting> SystemSettings { get; set; }
-        public ICollection<User_Group> User_Groups { get; set; }
-        public ICollection<GroupPermission> GroupPermission { get; set; }
+        public ICollection<GroupUser> GroupUsers { get; set; }
+        public ICollection<Group> Groups { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace FDMS_API.Data.Models
 {
-    public class User_Group
+    public class GroupUser
     {    
         // Foreign Property
         public int UserID {  get; set; }
@@ -9,6 +9,6 @@ namespace FDMS_API.Data.Models
 
         // Foreign Key Link
         public User User { get; set; }
-        public GroupPermission GroupPermission { get; set; }
+        public Group Group { get; set; }
     }
 }

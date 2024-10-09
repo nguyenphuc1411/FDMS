@@ -8,11 +8,11 @@ namespace FDMS_API.Data
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options) { }
         
         public DbSet<User> Users { get; set; }
-        public DbSet<GroupPermission> GroupPermissions { get; set; }
-        public DbSet<User_Group> User_Groups { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<GroupUser> GroupUsers { get; set; }
         public DbSet<Document> Documents { get; set; }
-        public DbSet<DocumentType> DocumentTypes { get; set; }
-        public DbSet<Type_GroupPermission> Type_GroupPermissions { get; set; }
+        public DbSet<Models.Type> Types { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<SystemSetting> SystemSettings { get; set; }
         public DbSet<Confirmation> Confirmations { get; set; }
@@ -25,47 +25,58 @@ namespace FDMS_API.Data
             // Foreign Key for User
             modelBuilder.Entity<User>(options =>
             {
-                options.HasMany(u => u.Flights).WithOne(f => f.User).HasForeignKey(f => f.UserID).OnDelete(DeleteBehavior.NoAction);
-                options.HasMany(u => u.Documents).WithOne(d => d.User).HasForeignKey(d => d.UserID).OnDelete(DeleteBehavior.NoAction);
-                options.HasMany(u => u.DocumentTypes).WithOne(dt => dt.User).HasForeignKey(dt => dt.UserID).OnDelete(DeleteBehavior.NoAction);
-                options.HasMany(u => u.Confirmations).WithOne(c => c.User).HasForeignKey(c => c.UserID).OnDelete(DeleteBehavior.NoAction);
-                options.HasMany(u => u.SystemSettings).WithOne(s => s.User).HasForeignKey(s => s.UserID).OnDelete(DeleteBehavior.NoAction);
-                options.HasMany(u => u.User_Groups).WithOne(ug => ug.User).HasForeignKey(ug => ug.UserID).OnDelete(DeleteBehavior.NoAction);
-                options.HasMany(u => u.GroupPermission).WithOne(gp => gp.User).HasForeignKey(gp => gp.UserID).OnDelete(DeleteBehavior.NoAction);
+                options.HasMany(u => u.Flights).WithOne(f => f.User).HasForeignKey(f => f.UserID);
+                options.HasMany(u => u.Documents).WithOne(d => d.User).HasForeignKey(d => d.UserID);
+                options.HasMany(u => u.Types).WithOne(dt => dt.User).HasForeignKey(dt => dt.UserID);
+                options.HasMany(u => u.Confirmations).WithOne(c => c.User).HasForeignKey(c => c.UserID);
+                options.HasMany(u => u.SystemSettings).WithOne(s => s.User).HasForeignKey(s => s.UserID);
+                options.HasMany(u => u.GroupUsers).WithOne(ug => ug.User).HasForeignKey(ug => ug.UserID);
+                options.HasMany(u => u.Groups).WithOne(gp => gp.User).HasForeignKey(gp => gp.UserID);
             });
             // Foreign Key for Flight
             modelBuilder.Entity<Flight>(options =>
             {
-                options.HasMany(f => f.Documents).WithOne(d=>d.Flight).HasForeignKey(d => d.FlightID).OnDelete(DeleteBehavior.NoAction);
-                options.HasMany(f => f.Confirmations).WithOne(c => c.Flight).HasForeignKey(c => c.FlightID).OnDelete(DeleteBehavior.NoAction);
+                options.HasMany(f => f.Documents).WithOne(d=>d.Flight).HasForeignKey(d => d.FlightID);
+                options.HasMany(f => f.Confirmations).WithOne(c => c.Flight).HasForeignKey(c => c.FlightID);
             });
             // Foreign Key for Document
             modelBuilder.Entity<Document>()
-                .HasMany(d => d.DocumentPermissions).WithOne(dp => dp.Document).HasForeignKey(dp => dp.DocumentID).OnDelete(DeleteBehavior.NoAction);
+                .HasMany(d => d.DocumentPermissions).WithOne(dp => dp.Document).HasForeignKey(dp => dp.DocumentID);
             // Foreign Key for DocumentType
-            modelBuilder.Entity<DocumentType>(options =>
+            modelBuilder.Entity<Models.Type>(options =>
             {
-                options.HasMany(dt => dt.Documents).WithOne(d=>d.DocumentType).HasForeignKey(d => d.TypeID).OnDelete(DeleteBehavior.NoAction);
-                options.HasMany(dt => dt.Type_GroupPermissions).WithOne(tgp=>tgp.DocumentType).HasForeignKey(tgp=>tgp.TypeID).OnDelete(DeleteBehavior.NoAction);
+                options.HasMany(dt => dt.Documents).WithOne(d=> d.Type).HasForeignKey(d => d.TypeID);
+                options.HasMany(dt => dt.Permissions).WithOne(tgp=> tgp.Type).HasForeignKey(tgp=> tgp.TypeID);
             });
-            // Foreign Key for GroupPermission
-            modelBuilder.Entity<GroupPermission>(options =>
+            // Foreign Key for Group
+            modelBuilder.Entity<Group>(options =>
             {
-                options.HasMany(gp => gp.Type_GroupPermissions).WithOne(tgp=>tgp.GroupPermission).HasForeignKey(tgp=>tgp.GroupID).OnDelete(DeleteBehavior.NoAction);
-                options.HasMany(dt => dt.User_Groups).WithOne(ug=>ug.GroupPermission).HasForeignKey(ug => ug.GroupID).OnDelete(DeleteBehavior.NoAction);
-                options.HasMany(dt => dt.DocumentPermissions).WithOne(dp=>dp.GroupPermission).HasForeignKey(dp=>dp.GroupID).OnDelete(DeleteBehavior.NoAction);
+                options.HasMany(gp => gp.Permissions).WithOne(tgp=>tgp.Group).HasForeignKey(tgp=>tgp.GroupID);
+                options.HasMany(dt => dt.GroupUsers).WithOne(ug=>ug.Group).HasForeignKey(ug => ug.GroupID);
+                options.HasMany(dt => dt.DocumentPermissions).WithOne(dp=>dp.Group).HasForeignKey(dp=>dp.GroupID);
             });
 
             // Primary Key for Type_GroupPermission, User_Group, DocumentPermission, Confirmation
 
-            modelBuilder.Entity<Type_GroupPermission>().HasKey(tgp=>new {tgp.TypeID, tgp.GroupID});
+            modelBuilder.Entity<Permission>().HasKey(tgp=>new {tgp.TypeID, tgp.GroupID});
 
-            modelBuilder.Entity<User_Group>().HasKey(ug => new { ug.UserID, ug.GroupID });
+            modelBuilder.Entity<GroupUser>().HasKey(ug => new { ug.UserID, ug.GroupID });
 
             modelBuilder.Entity<DocumentPermission>().HasKey(dp => new { dp.DocumentID, dp.GroupID });
 
             modelBuilder.Entity<Confirmation>().HasKey(c => new { c.UserID, c.FlightID });
 
+
+            // Chỉ định hành vi khi xóa 1 bảng ghi
+
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                var foreignKeys = entityType.GetForeignKeys();
+                foreach (var foreignKey in foreignKeys)
+                {
+                    foreignKey.DeleteBehavior = DeleteBehavior.NoAction;
+                }
+            }
 
             // Dữ liệu mặc định khi setup CSDL
 

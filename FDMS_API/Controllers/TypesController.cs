@@ -5,7 +5,7 @@ namespace FDMS_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GroupPermissionsController : ControllerBase
+    public class TypesController : ControllerBase
     {
     }
 }

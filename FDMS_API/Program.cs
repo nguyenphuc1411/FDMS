@@ -72,7 +72,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-// Khai bao su dung Static Files
+// Khai bao sử dung Static Files
 
 app.UseStaticFiles();
 

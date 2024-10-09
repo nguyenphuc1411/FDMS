@@ -2,7 +2,7 @@
 
 namespace FDMS_API.Data.Models
 {
-    public class DocumentType
+    public class Type
     {
         [Key]
         public int TypeID {  get; set; }
@@ -17,6 +17,6 @@ namespace FDMS_API.Data.Models
         public User User { get; set; }
 
         public ICollection<Document> Documents { get; set; }
-        public ICollection<Type_GroupPermission> Type_GroupPermissions { get; set; }
+        public ICollection<Permission> Permissions { get; set; }
     }
 }

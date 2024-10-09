@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FDMS_API.Data.Models
 {
-    public class GroupPermission
+    public class Group
     {
         [Key]
         public int GroupID { get; set; }
@@ -19,8 +19,8 @@ namespace FDMS_API.Data.Models
 
         public User User { get; set; }
         
-        public ICollection<Type_GroupPermission> Type_GroupPermissions { get; set; }
-        public ICollection<User_Group> User_Groups { get; set; }
+        public ICollection<Permission> Permissions { get; set; }
+        public ICollection<GroupUser> GroupUsers { get; set; }
         public ICollection<DocumentPermission> DocumentPermissions { get; set; }
     }
 }

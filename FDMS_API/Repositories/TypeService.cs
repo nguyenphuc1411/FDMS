@@ -2,7 +2,7 @@
 
 namespace FDMS_API.Repositories
 {
-    public class DocumentTypeService: IDocumentTypeService
+    public class TypeService: ITypeService
     {
     }
 }

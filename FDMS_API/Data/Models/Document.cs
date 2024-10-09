@@ -23,7 +23,7 @@ namespace FDMS_API.Data.Models
         public int FlightID { get; set; }
 
         // Foreign Key Link
-        public DocumentType DocumentType { get; set; }
+        public Type Type { get; set; }
         public User User { get; set; }
         public Flight Flight { get; set; }
 

@@ -8,6 +8,6 @@
 
         // Foreign Key Link
         public Document Document { get; set; }
-        public GroupPermission GroupPermission { get; set; }
+        public Group Group { get; set; }
     }
 }
