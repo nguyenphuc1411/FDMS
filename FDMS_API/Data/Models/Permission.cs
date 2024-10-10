@@ -4,7 +4,7 @@
     {
 
         public bool CanRead {  get; set; } = false;
-        public bool CanEdit { get; set; } = false;
+        public bool CanModify { get; set; } = false;
 
         // Foreign Property
         public int TypeID { get; set; }

@@ -24,8 +24,7 @@ namespace FDMS_API.Data.Models
         public ICollection<Document> Documents { get; set; }
         public ICollection<Type> Types { get; set; }
 
-        public ICollection<Confirmation> Confirmations { get; set; }
-        public ICollection<SystemSetting> SystemSettings { get; set; }
+        public ICollection<Report> Reports { get; set; }
         public ICollection<GroupUser> GroupUsers { get; set; }
         public ICollection<Group> Groups { get; set; }
     }

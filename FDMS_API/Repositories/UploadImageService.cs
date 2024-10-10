@@ -13,6 +13,15 @@ namespace FDMS_API.Repositories
             _environment = environment;
         }
 
+        public void DeleteImage(string filePath)
+        {
+            string fullPath = Path.Combine(_environment.WebRootPath,"Images" , filePath);
+            if(File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+            }
+        }
+
         public async Task<UploadImageResult> UploadImage(IFormFile file,string folder)
         {
             if (file.IsImage())
@@ -35,7 +44,7 @@ namespace FDMS_API.Repositories
                 return new UploadImageResult
                 {
                     Success = true,
-                    FilePath = Path.Combine(folder, uniqueFileName)
+                    FilePath = folder+"/"+ uniqueFileName
                 };
                    
             }

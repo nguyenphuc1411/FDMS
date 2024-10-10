@@ -2,7 +2,7 @@
 
 namespace FDMS_API.Data.Models
 {
-    public class Confirmation
+    public class Report
     {
       
         [Column(TypeName ="varchar(255)")]

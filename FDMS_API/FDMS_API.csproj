@@ -23,7 +23,7 @@
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
     <Folder Include="wwwroot\Images\" />
-    <Folder Include="wwwroot\Images\Settings\" />
+    <Folder Include="wwwroot\Images\Logo\" />
   </ItemGroup>
 
 </Project>

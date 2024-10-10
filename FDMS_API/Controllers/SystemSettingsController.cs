@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FDMS_API.Controllers
 {
-    [Authorize(Roles ="Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class SystemSettingsController : ControllerBase
@@ -16,22 +15,25 @@ namespace FDMS_API.Controllers
         public SystemSettingsController(ISystemSettingService service)
         {
             _service = service;
-        }     
+        }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> CreateSystemSetting([FromForm] SystemSettingDTO systemSettingDTO)
+        public async Task<IActionResult> UpdateSystemSetting([FromForm] SystemSettingDTO systemSettingDTO)
         {
             if (ModelState.IsValid)
             {
-                var result = await _service.CreateSystemSetting(systemSettingDTO);
+                var result = await _service.UpdateSystemSetting(systemSettingDTO);
                 return StatusCode(result.StatusCode, result);
             }
             return BadRequest();
         }
+        [Authorize]
         [HttpGet]
-        public async Task<IActionResult> GetLatestSetting()
+        public async Task<IActionResult> GetSetting()
         {
-            var result = await _service.GetLatestSetting();
+            var result = await _service.GetSystemSetting();
             return StatusCode(result.StatusCode, result);
         }
+        
     }
 }

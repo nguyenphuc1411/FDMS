@@ -7,14 +7,22 @@ namespace FDMS_API.Data.Models
     {
         [Key]
         public int FlightID { get; set; }
+
         [Column(TypeName = "varchar(20)")]
         public string FlightNo { get; set; }
-        public DateTime DepartureTime { get; set; }
-        public DateTime ArrivalTime { get; set; }
+
+        public DateOnly FlightDate {  get; set; }
+
+        public TimeOnly DepartureTime { get; set; }
+
+        public TimeOnly ArrivalTime { get; set; }
+
         [Column(TypeName = "varchar(150)")]
         public string POL { get; set; }
+
         [Column(TypeName = "varchar(150)")]
         public string POU { get; set; }
+
         [Column(TypeName = "varchar(20)")]
         public string AircraftID { get; set; }
 
@@ -24,7 +32,7 @@ namespace FDMS_API.Data.Models
         // Foreign Key Link
         public User User { get; set; }
 
-        public ICollection<Confirmation> Confirmations { get; set; }
+        public ICollection<Report> Reports { get; set; }
         public ICollection<Document> Documents { get; set; }
     }
 }

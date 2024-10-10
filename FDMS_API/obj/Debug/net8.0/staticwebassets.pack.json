@@ -1,8 +1,12 @@
 {
   "Files": [
     {
-      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Settings\\5a2b1b9a-558b-4ad2-a3b2-79a597349378.png",
-      "PackagePath": "staticwebassets\\Images\\Settings\\5a2b1b9a-558b-4ad2-a3b2-79a597349378.png"
+      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Logo\\95dcfb20-340b-44ba-a28f-25ba651c6093.png",
+      "PackagePath": "staticwebassets\\Images\\Logo\\95dcfb20-340b-44ba-a28f-25ba651c6093.png"
+    },
+    {
+      "Id": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Logo\\ba571cbc-8767-43ef-9f35-5a97b3c7f5c2.png",
+      "PackagePath": "staticwebassets\\Images\\Logo\\ba571cbc-8767-43ef-9f35-5a97b3c7f5c2.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FDMS_API.Microsoft.AspNetCore.StaticWebAssets.props",

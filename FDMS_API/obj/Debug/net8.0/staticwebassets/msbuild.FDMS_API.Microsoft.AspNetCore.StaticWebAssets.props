@@ -1,11 +1,11 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Settings\5a2b1b9a-558b-4ad2-a3b2-79a597349378.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Logo\95dcfb20-340b-44ba-a28f-25ba651c6093.png))">
       <SourceType>Package</SourceType>
       <SourceId>FDMS_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FDMS_API</BasePath>
-      <RelativePath>Images/Settings/5a2b1b9a-558b-4ad2-a3b2-79a597349378.png</RelativePath>
+      <RelativePath>Images/Logo/95dcfb20-340b-44ba-a28f-25ba651c6093.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -14,7 +14,23 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Settings\5a2b1b9a-558b-4ad2-a3b2-79a597349378.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Logo\95dcfb20-340b-44ba-a28f-25ba651c6093.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Logo\ba571cbc-8767-43ef-9f35-5a97b3c7f5c2.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>FDMS_API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FDMS_API</BasePath>
+      <RelativePath>Images/Logo/ba571cbc-8767-43ef-9f35-5a97b3c7f5c2.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Logo\ba571cbc-8767-43ef-9f35-5a97b3c7f5c2.png))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

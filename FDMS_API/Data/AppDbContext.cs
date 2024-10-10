@@ -15,7 +15,7 @@ namespace FDMS_API.Data
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<SystemSetting> SystemSettings { get; set; }
-        public DbSet<Confirmation> Confirmations { get; set; }
+        public DbSet<Report> Reports { get; set; }
         public DbSet<DocumentPermission> DocumentPermissions { get; set; }
 
 
@@ -28,8 +28,7 @@ namespace FDMS_API.Data
                 options.HasMany(u => u.Flights).WithOne(f => f.User).HasForeignKey(f => f.UserID);
                 options.HasMany(u => u.Documents).WithOne(d => d.User).HasForeignKey(d => d.UserID);
                 options.HasMany(u => u.Types).WithOne(dt => dt.User).HasForeignKey(dt => dt.UserID);
-                options.HasMany(u => u.Confirmations).WithOne(c => c.User).HasForeignKey(c => c.UserID);
-                options.HasMany(u => u.SystemSettings).WithOne(s => s.User).HasForeignKey(s => s.UserID);
+                options.HasMany(u => u.Reports).WithOne(c => c.User).HasForeignKey(c => c.UserID);
                 options.HasMany(u => u.GroupUsers).WithOne(ug => ug.User).HasForeignKey(ug => ug.UserID);
                 options.HasMany(u => u.Groups).WithOne(gp => gp.User).HasForeignKey(gp => gp.UserID);
             });
@@ -37,7 +36,7 @@ namespace FDMS_API.Data
             modelBuilder.Entity<Flight>(options =>
             {
                 options.HasMany(f => f.Documents).WithOne(d=>d.Flight).HasForeignKey(d => d.FlightID);
-                options.HasMany(f => f.Confirmations).WithOne(c => c.Flight).HasForeignKey(c => c.FlightID);
+                options.HasMany(f => f.Reports).WithOne(c => c.Flight).HasForeignKey(c => c.FlightID);
             });
             // Foreign Key for Document
             modelBuilder.Entity<Document>()
@@ -64,7 +63,7 @@ namespace FDMS_API.Data
 
             modelBuilder.Entity<DocumentPermission>().HasKey(dp => new { dp.DocumentID, dp.GroupID });
 
-            modelBuilder.Entity<Confirmation>().HasKey(c => new { c.UserID, c.FlightID });
+            modelBuilder.Entity<Report>().HasKey(c => new { c.UserID, c.FlightID });
 
 
             // Chỉ định hành vi khi xóa 1 bảng ghi

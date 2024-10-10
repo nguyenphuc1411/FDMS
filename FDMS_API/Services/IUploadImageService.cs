@@ -5,5 +5,6 @@ namespace FDMS_API.Services
     public interface IUploadImageService
     {
         Task<UploadImageResult> UploadImage(IFormFile file,string folder);
+        void DeleteImage(string filePath);
     }
 }
