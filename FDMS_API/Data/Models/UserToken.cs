@@ -11,6 +11,7 @@ namespace FDMS_API.Data.Models
 
         [Column(TypeName = "nvarchar(50)")]
         public string TokenType { get; set; }
+        [Column(TypeName = "varchar(256)")]
         public string Email { get; set; }
         public DateTime ExpirationDate { get; set; } = DateTime.Now.AddMinutes(5);
 

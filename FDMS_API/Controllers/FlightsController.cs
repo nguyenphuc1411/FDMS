@@ -1,4 +1,5 @@
 ﻿using FDMS_API.Extentions;
+using FDMS_API.Models.DTOs;
 using FDMS_API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -16,10 +17,12 @@ namespace FDMS_API.Controllers
         {
             _service = service;
         }
-        [HttpGet]
-        public IActionResult Hello()
+        [Authorize(Roles ="Admin")]
+        [HttpPost]
+        public async Task<IActionResult> CreateFlightt(CreateFlightDTO flight)
         {
-            return Ok();
+            var response = await _service.CreateNewFlight(flight);
+            return StatusCode(response.StatusCode, response);
         }
     }
 }

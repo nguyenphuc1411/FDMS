@@ -20,12 +20,8 @@ namespace FDMS_API.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateSystemSetting([FromForm] SystemSettingDTO systemSettingDTO)
         {
-            if (ModelState.IsValid)
-            {
-                var result = await _service.UpdateSystemSetting(systemSettingDTO);
-                return StatusCode(result.StatusCode, result);
-            }
-            return BadRequest();
+            var result = await _service.UpdateSystemSetting(systemSettingDTO);
+            return StatusCode(result.StatusCode, result);
         }
         [Authorize]
         [HttpGet]
@@ -34,6 +30,6 @@ namespace FDMS_API.Controllers
             var result = await _service.GetSystemSetting();
             return StatusCode(result.StatusCode, result);
         }
-        
+
     }
 }

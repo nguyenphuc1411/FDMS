@@ -1,4 +1,5 @@
 ﻿using FDMS_API.Data.Models;
+using FDMS_API.Extentions;
 using Microsoft.EntityFrameworkCore;
 
 namespace FDMS_API.Data
@@ -85,9 +86,9 @@ namespace FDMS_API.Data
                 {
                     UserID = 1,
                     Name= "Admin default",
-                    Email="Admin@gmail.com",
+                    Email="admin@vietjetair.com",
                     Phone="0898827656",
-                    PasswordHash="1234567890",
+                    PasswordHash="Admin@123".HashPassword(),
                     IsTerminated=false,
                     Role = "Admin"
                 }

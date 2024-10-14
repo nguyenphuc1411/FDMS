@@ -22,31 +22,19 @@ namespace FDMS_API.Controllers
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDTO login)
-        {
-            if(!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+        {        
             var response = await _service.Login(login);
             return StatusCode(response.StatusCode, response);
         }
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword(ForgotPassword request)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
             var response = await _service.RequestForgotPassword(request);
             return StatusCode(response.StatusCode, response);
         }
         [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword(ResetPassword request)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+        {      
             var response = await _service.ResetPassword(request);
             return StatusCode(response.StatusCode, response);
         }
@@ -55,13 +43,16 @@ namespace FDMS_API.Controllers
         [Authorize]
         [HttpPost("change-password")]
         public async Task<IActionResult> ChangePassword(ChangePassword request)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+        {         
             var response = await _service.ChangePassword(request);
             return StatusCode(response.StatusCode, response);
+        }
+
+        [HttpPost("refresh")]
+        public async Task<IActionResult> Refresh(string refreshToken)
+        {
+            var response = await _service.RefreshToken(refreshToken);
+            return StatusCode(response.StatusCode,response);
         }
     }
 }
