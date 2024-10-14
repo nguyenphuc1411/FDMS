@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MWAundTawV+zkaFUVlIPo9VrM2Vd8KHV9B/f1NmjCLI=",
+  "Hash": "dllVnPUJnkbB+abS5BxYDbOcp0upau78fcSJuNiOTMI=",
   "Source": "FDMS_API",
   "BasePath": "_content/FDMS_API",
   "Mode": "Default",
@@ -15,5 +15,25 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Logo\\657060d2-c4b1-411e-b234-cfb26be8684a.png",
+      "SourceId": "FDMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\",
+      "BasePath": "_content/FDMS_API",
+      "RelativePath": "Images/Logo/657060d2-c4b1-411e-b234-cfb26be8684a.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Logo\\657060d2-c4b1-411e-b234-cfb26be8684a.png"
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-﻿using FDMS_API.Services;
+﻿using FDMS_API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +26,12 @@ namespace FDMS_API.Controllers
             }
             var result = await _service.TerminateUser(userIDs);
             return StatusCode(result.StatusCode, result);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetCurrentUser(string chuoi)
+        {
+           
+            return Ok(chuoi.Trim());
         }
     }
 }

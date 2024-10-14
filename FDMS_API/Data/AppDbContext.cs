@@ -18,7 +18,7 @@ namespace FDMS_API.Data
         public DbSet<Report> Reports { get; set; }
         public DbSet<DocumentPermission> DocumentPermissions { get; set; }
 
-
+        public DbSet<UserToken> UserTokens { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -31,6 +31,7 @@ namespace FDMS_API.Data
                 options.HasMany(u => u.Reports).WithOne(c => c.User).HasForeignKey(c => c.UserID);
                 options.HasMany(u => u.GroupUsers).WithOne(ug => ug.User).HasForeignKey(ug => ug.UserID);
                 options.HasMany(u => u.Groups).WithOne(gp => gp.User).HasForeignKey(gp => gp.UserID);
+                options.HasMany(u => u.UserTokens).WithOne(t => t.User).HasForeignKey(gp => gp.UserID);
             });
             // Foreign Key for Flight
             modelBuilder.Entity<Flight>(options =>

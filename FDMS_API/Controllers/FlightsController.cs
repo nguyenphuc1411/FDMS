@@ -1,4 +1,5 @@
-﻿using FDMS_API.Services;
+﻿using FDMS_API.Extentions;
+using FDMS_API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,12 +16,10 @@ namespace FDMS_API.Controllers
         {
             _service = service;
         }
-        [Authorize]
         [HttpGet]
-        public IActionResult GetUser()
+        public IActionResult Hello()
         {
-            var user = _service.CreateNewFlight();
-            return Ok(user);
+            return Ok();
         }
     }
 }

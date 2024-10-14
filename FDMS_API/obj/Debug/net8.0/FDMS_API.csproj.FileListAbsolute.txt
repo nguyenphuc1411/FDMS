@@ -140,3 +140,6 @@ D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
 D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\AutoMapper.dll
+D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\MailKit.dll
+D:\Intern\FDMS_API\FDMS_API\bin\Debug\net8.0\MimeKit.dll

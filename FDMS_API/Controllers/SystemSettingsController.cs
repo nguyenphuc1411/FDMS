@@ -1,5 +1,5 @@
-﻿using FDMS_API.DTOs;
-using FDMS_API.Services;
+﻿using FDMS_API.Models.DTOs;
+using FDMS_API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

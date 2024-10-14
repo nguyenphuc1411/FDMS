@@ -27,5 +27,7 @@ namespace FDMS_API.Data.Models
         public ICollection<Report> Reports { get; set; }
         public ICollection<GroupUser> GroupUsers { get; set; }
         public ICollection<Group> Groups { get; set; }
+
+        public ICollection<UserToken> UserTokens { get; set; }
     }
 }

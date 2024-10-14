@@ -310,6 +310,42 @@ namespace FDMS_API.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("FDMS_API.Data.Models.UserToken", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExpirationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TokenType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("UserTokens");
+                });
+
             modelBuilder.Entity("FDMS_API.Data.Models.Document", b =>
                 {
                     b.HasOne("FDMS_API.Data.Models.Flight", "Flight")
@@ -446,6 +482,17 @@ namespace FDMS_API.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("FDMS_API.Data.Models.UserToken", b =>
+                {
+                    b.HasOne("FDMS_API.Data.Models.User", "User")
+                        .WithMany("UserTokens")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("FDMS_API.Data.Models.Document", b =>
                 {
                     b.Navigation("DocumentPermissions");
@@ -487,6 +534,8 @@ namespace FDMS_API.Data.Migrations
                     b.Navigation("Reports");
 
                     b.Navigation("Types");
+
+                    b.Navigation("UserTokens");
                 });
 #pragma warning restore 612, 618
         }

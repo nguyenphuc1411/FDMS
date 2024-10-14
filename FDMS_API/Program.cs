@@ -1,7 +1,8 @@
-﻿using FDMS_API.Data;
-using FDMS_API.Mappings;
-using FDMS_API.Repositories;
-using FDMS_API.Services;
+﻿using FDMS_API.Configurations.Mappings;
+using FDMS_API.Configurations.Middlewares;
+using FDMS_API.Data;
+using FDMS_API.Services.Implementations;
+using FDMS_API.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -31,25 +32,24 @@ builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddScoped<ISystemSettingService, SystemSettingService>();
 
-builder.Services.AddScoped<IUploadImageService, UploadImageService>();
+builder.Services.AddScoped<IFileUploadService, FileUploadService>();
+
+builder.Services.AddTransient<IMailService, MailService>();
 // Khai báo sử dụng JWT
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
+
+var key = Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
 {
-    var key = Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]);
     options.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = true, 
-        ValidateAudience = true, 
-        ValidateLifetime = true, 
+        ValidateIssuer = false,
+        ValidateAudience = false,
+
         ValidateIssuerSigningKey = true, 
-        ValidIssuer = builder.Configuration["JWT:Issuer"],
-        ValidAudience = builder.Configuration["JWT:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(key)
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ClockSkew = TimeSpan.Zero
     };
 });
 
@@ -72,8 +72,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-// Khai bao sử dung Static Files
 
+// Middleware su ly ngoai le
+app.UseMiddleware<GlobalExceptionHandler>();
+
+// Khai bao sử dung Static Files
 app.UseStaticFiles();
 
 app.UseHttpsRedirection();
