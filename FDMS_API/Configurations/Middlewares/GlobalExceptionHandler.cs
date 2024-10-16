@@ -36,7 +36,7 @@ namespace FDMS_API.Configurations.Middlewares
             var response = new ErrorResponse
             {
                 StatusCode = (int)HttpStatusCode.InternalServerError,
-                Message = "Some thing went wrong",
+                Message = "Something went wrong",
                 Data = exception.Message
             };
             return context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(response));
