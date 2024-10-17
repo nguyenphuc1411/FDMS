@@ -257,10 +257,7 @@ namespace FDMS_API.Services.Implementations
                     StatusCode = 400
                 };
             }
-        }
-
-        // Hàm tạo body email forgot password
-      
+        }      
 
         public async Task<APIResponse> ResetPassword(ResetPassword request)
         {

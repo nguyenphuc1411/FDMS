@@ -10,5 +10,6 @@ namespace FDMS_API.Services.Interfaces
         Task<UserDTO> GetCurrentUserDTO();
         Task<User> GetCurrentUser();
         Task<APIResponse> TerminateUser(List<int> userIDs);
+        Task<APIResponse> RestoreAccess(List<int> userIDs);
     }
 }

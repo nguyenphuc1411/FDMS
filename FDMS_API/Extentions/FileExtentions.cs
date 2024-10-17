@@ -12,15 +12,15 @@
         ".xml", ".html", ".htm",
         ".csv", ".json"
         };
-        public static bool IsImage(this IFormFile formFile)
+        public static bool IsImage(this IFormFile file)
         {
-            if(formFile == null && formFile?.Length == 0)
+            if(file == null && file?.Length == 0)
             {
                 return false;
             }
             var allowedExtentions = new[] { ".jpg", ".jpeg", ".png", ".gif" }; 
 
-            var fileExtention = Path.GetExtension(formFile.FileName).ToLowerInvariant();
+            var fileExtention = Path.GetExtension(file.FileName).ToLowerInvariant();
 
             if (!allowedExtentions.Contains(fileExtention))
             {
@@ -31,8 +31,8 @@
 
         public static bool IsValidFileFormat(this IFormFile file)
         {
-            if (file == null)
-                throw new ArgumentNullException(nameof(file), "File cannot be null.");
+            if (file == null && file?.Length == 0)
+                return false;
 
             // Lấy phần mở rộng của file
             var extension = Path.GetExtension(file.FileName).ToLowerInvariant();

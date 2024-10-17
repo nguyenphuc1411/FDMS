@@ -9,8 +9,10 @@ namespace FDMS_API.Configurations.Mappings
         public MappingProfile()
         {
             CreateMap<User, UserDTO>().ReverseMap();
-            CreateMap<SystemSetting, SystemSettingDTO>().ReverseMap();
-            CreateMap<Flight, CreateFlightDTO>().ReverseMap();
+            CreateMap<SystemSetting, SystemSetting>().ReverseMap();
+            CreateMap<Flight, CreateFlight>().ReverseMap();
+            CreateMap<Group, GroupDTO>().ReverseMap();
+            CreateMap<Permission,PermissionDTO>().ReverseMap();
         }
     }
 }

@@ -35,6 +35,10 @@ builder.Services.AddScoped<ISystemSettingService, SystemSettingService>();
 builder.Services.AddScoped<IFileUploadService, FileUploadService>();
 
 builder.Services.AddTransient<IMailService, MailService>();
+
+builder.Services.AddScoped<IGroupService, GroupService>();
+
+builder.Services.AddScoped<ITypeService, TypeService>();
 // Khai báo sử dụng JWT
 
 var key = Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]);

@@ -5,7 +5,7 @@ namespace FDMS_API.Extentions
 {
     public static class PaginationExtention
     {
-        public static PagedResult<T> Pagination<T>(IEnumerable<T> items, int pageSize, int currentPage)
+        public static PagedResult<T> Pagination<T>(this IEnumerable<T> items, int pageSize, int currentPage)
         {
             int totalCount = items.Count();
             int totalPage = (int)Math.Ceiling((double)totalCount / pageSize);

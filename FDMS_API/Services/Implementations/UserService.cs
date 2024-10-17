@@ -68,7 +68,41 @@ namespace FDMS_API.Services.Implementations
             }
         }
 
+        public async Task<APIResponse> RestoreAccess(List<int> userIDs)
+        {
+            var users = await _context.Users.Where(x => userIDs.Contains(x.UserID) && x.IsTerminated == true).ToListAsync();
+            if (users.Count > 0)
+            {
+                foreach (var user in users)
+                {
+                    user.IsTerminated = false;
+                }
+                var result = await _context.SaveChangesAsync();
+                if (result > 0)
+                {
+                    return new APIResponse
+                    {
+                        Success = true,
+                        Message = "Restore access users success",
+                        StatusCode = 200
+                    };
+                }
+                return new APIResponse
+                {
+                    Success = false,
+                    Message = "Restore users failed",
+                    StatusCode = 400
+                };
 
+            }
+            return new APIResponse
+            {
+                Success = false,
+                Message = "Users is not exists",
+                StatusCode = 404
+            };
+
+        }
 
 
         // Get user already login
@@ -83,14 +117,13 @@ namespace FDMS_API.Services.Implementations
         {
             return int.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
         }
-
-      
-
         public async Task<User> GetCurrentUser()
         {
             var userID = GetUserId();
             var user = await _context.Users.FindAsync(userID);
             return user;
         }
+
+
     }
 }

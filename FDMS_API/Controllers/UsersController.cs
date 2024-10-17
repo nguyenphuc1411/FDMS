@@ -27,11 +27,17 @@ namespace FDMS_API.Controllers
             var result = await _service.TerminateUser(userIDs);
             return StatusCode(result.StatusCode, result);
         }
-        [HttpGet]
-        public async Task<IActionResult> GetCurrentUser(string chuoi)
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost("restore-access")]
+        public async Task<IActionResult> RestoreAccess([FromBody] List<int> userIDs)
         {
-           
-            return Ok(chuoi.Trim());
+            if (userIDs.Count == 0)
+            {
+                return BadRequest("List UserID is required");
+            }
+            var result = await _service.RestoreAccess(userIDs);
+            return StatusCode(result.StatusCode, result);
         }
     }
 }

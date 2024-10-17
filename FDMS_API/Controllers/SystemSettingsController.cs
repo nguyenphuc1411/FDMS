@@ -18,7 +18,7 @@ namespace FDMS_API.Controllers
         }
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> UpdateSystemSetting([FromForm] SystemSettingDTO systemSettingDTO)
+        public async Task<IActionResult> UpdateSystemSetting([FromForm] CreateSetting systemSettingDTO)
         {
             var result = await _service.UpdateSystemSetting(systemSettingDTO);
             return StatusCode(result.StatusCode, result);

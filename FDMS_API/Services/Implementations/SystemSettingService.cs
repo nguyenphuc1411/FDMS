@@ -40,7 +40,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> UpdateSystemSetting(SystemSettingDTO systemSetting)
+        public async Task<APIResponse> UpdateSystemSetting(Models.DTOs.CreateSetting systemSetting)
         {
             try
             {
@@ -96,7 +96,7 @@ namespace FDMS_API.Services.Implementations
 
                     if (uploadResult.Success)
                     {
-                        var setting = new SystemSetting
+                        var setting = new Data.Models.SystemSetting
                         {
                             Theme = systemSetting.Theme,
                             LogoURL = uploadResult.FilePath.ToString(),

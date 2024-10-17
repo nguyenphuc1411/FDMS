@@ -1,4 +1,5 @@
-﻿using FDMS_API.Extentions;
+﻿using FDMS_API.Data.Models;
+using FDMS_API.Extentions;
 using FDMS_API.Models.DTOs;
 using FDMS_API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -19,9 +20,23 @@ namespace FDMS_API.Controllers
         }
         [Authorize(Roles ="Admin")]
         [HttpPost]
-        public async Task<IActionResult> CreateFlightt(CreateFlightDTO flight)
+        public async Task<IActionResult> CreateFlightt(CreateFlight flight)
         {
             var response = await _service.CreateNewFlight(flight);
+            return StatusCode(response.StatusCode, response);
+        }
+        [Authorize]
+        [HttpGet("current-flight")]
+        public async Task<IActionResult> GetCurrentFlight()
+        {
+            var response = await _service.GetCurrentFlight();
+            return StatusCode(response.StatusCode, response);
+        }
+        [Authorize(Roles ="Admin")]
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var response = await _service.Get();
             return StatusCode(response.StatusCode, response);
         }
     }

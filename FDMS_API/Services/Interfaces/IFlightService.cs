@@ -5,6 +5,10 @@ namespace FDMS_API.Services.Interfaces
 {
     public interface IFlightService
     {
-        Task<APIResponse> CreateNewFlight(CreateFlightDTO model);
+        Task<APIResponse> CreateNewFlight(CreateFlight model);
+
+        Task<APIResponse> GetCurrentFlight();
+
+        Task<APIResponse> Get();
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FDMS_API.Models.DTOs
 {
-    public class CreateFlightDTO
+    public class CreateFlight
     {
         public int? FlightID { get; set; }
         [Required]        
