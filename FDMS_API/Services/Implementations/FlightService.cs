@@ -22,7 +22,7 @@ namespace FDMS_API.Services.Implementations
             _userService = userService;
         }
 
-        public async Task<APIResponse> CreateNewFlight(CreateFlight model)
+        public async Task<APIResponse> CreateNewFlight(FlightDTO model)
         {
             var newFlight = _mapper.Map<Flight>(model);
             newFlight.UserID = _userService.GetUserId();
@@ -49,7 +49,7 @@ namespace FDMS_API.Services.Implementations
         {
             var currentDate = DateOnly.FromDateTime(DateTime.Now);
             var currentTime = TimeOnly.FromDateTime(DateTime.Now);
-            var listFlight = await _context.Flights.Select(f => new FlightDTO
+            var listFlight = await _context.Flights.Select(f => new GetFlight
             {
                 FlightID = f.FlightID,
                 FlightNo = f.FlightNo,

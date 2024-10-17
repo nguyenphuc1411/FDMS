@@ -20,7 +20,7 @@ namespace FDMS_API.Controllers
         }
         [Authorize(Roles ="Admin")]
         [HttpPost]
-        public async Task<IActionResult> CreateFlightt(CreateFlight flight)
+        public async Task<IActionResult> CreateFlightt(FlightDTO flight)
         {
             var response = await _service.CreateNewFlight(flight);
             return StatusCode(response.StatusCode, response);

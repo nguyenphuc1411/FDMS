@@ -40,7 +40,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> UpdateSystemSetting(Models.DTOs.CreateSetting systemSetting)
+        public async Task<APIResponse> UpdateSystemSetting(Models.DTOs.SettingDTO systemSetting)
         {
             try
             {

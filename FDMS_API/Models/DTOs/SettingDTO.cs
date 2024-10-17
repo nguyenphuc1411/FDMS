@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FDMS_API.Models.DTOs
 {
-    public class CreateSetting
+    public class SettingDTO
     {
         [Required]
         [Range(0, 2, ErrorMessage = "Theme must be between 0 to 2")]

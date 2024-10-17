@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FDMS_API.Controllers
 {
+    [Authorize(Roles ="Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class GroupsController : ControllerBase
@@ -22,15 +23,12 @@ namespace FDMS_API.Controllers
             var response = await _service.Get(pageSize, currentPage);
             return StatusCode(response.StatusCode,response);
         }
-
-        [Authorize(Roles ="Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(GroupDTO requestModel)
         {
             var response = await _service.Create(requestModel);
             return StatusCode(response.StatusCode,response);
         }
-        [Authorize(Roles = "Admin")]
         [HttpGet("{groupID}")]
         public async Task<IActionResult> GetByID(int groupID)
         {
