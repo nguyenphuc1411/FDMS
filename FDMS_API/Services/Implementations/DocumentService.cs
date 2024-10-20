@@ -6,6 +6,7 @@ using FDMS_API.Models.DTOs.Document;
 using FDMS_API.Models.ResponseModel;
 using FDMS_API.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace FDMS_API.Services.Implementations
 {
@@ -51,6 +52,30 @@ namespace FDMS_API.Services.Implementations
                 Success = true,
                 Message = "Get document success",
                 Data = finalDocuments,
+                StatusCode = 200
+            };
+        }
+
+        public async Task<APIResponse> GetRecently(int? size)
+        {
+            var documents = new List<GetRecentlyDocuments>();
+            if (size.HasValue)
+            {
+                   documents = await _context.Documents.ProjectTo<GetRecentlyDocuments>(_mapper.ConfigurationProvider)
+                  .OrderByDescending(x => x.Created_At).Take(size.Value)
+                  .ToListAsync();
+            }
+            else
+            {
+                documents = await _context.Documents.ProjectTo<GetRecentlyDocuments>(_mapper.ConfigurationProvider)
+                 .OrderByDescending(x => x.Created_At)
+                 .ToListAsync();
+            }
+            return new APIResponse
+            {
+                Success = true,
+                Message = "Get documents success",
+                Data= documents,
                 StatusCode = 200
             };
         }
