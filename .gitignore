@@ -1,1 +1,17 @@
-.vs/
+# Các thư mục build và tệp tạm thời
+/bin
+/obj
+/vscode
+/.vs
+.idea
+.DS_Store
+
+# Tệp tạm thời người dùng
+*.user
+*.suo
+
+# Tệp log
+*.log
+
+# Cấu hình dự án
+/Properties/launchSettings.json
