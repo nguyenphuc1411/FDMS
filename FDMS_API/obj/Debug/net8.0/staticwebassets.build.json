@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dllVnPUJnkbB+abS5BxYDbOcp0upau78fcSJuNiOTMI=",
+  "Hash": "i6qMtPZR+1LtJ9+gLAmBa8FD85T4OvjiJmk/spjRSfQ=",
   "Source": "FDMS_API",
   "BasePath": "_content/FDMS_API",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Logo\\657060d2-c4b1-411e-b234-cfb26be8684a.png",
+      "Identity": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Logo\\fc651b41-a794-4ffd-8236-98e353cd8007.png",
       "SourceId": "FDMS_API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\",
       "BasePath": "_content/FDMS_API",
-      "RelativePath": "Images/Logo/657060d2-c4b1-411e-b234-cfb26be8684a.png",
+      "RelativePath": "Images/Logo/fc651b41-a794-4ffd-8236-98e353cd8007.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -33,7 +33,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Logo\\657060d2-c4b1-411e-b234-cfb26be8684a.png"
+      "OriginalItemSpec": "wwwroot\\Images\\Logo\\fc651b41-a794-4ffd-8236-98e353cd8007.png"
     }
   ]
 }

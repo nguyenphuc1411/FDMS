@@ -3,6 +3,7 @@ using FDMS_API.Data;
 using FDMS_API.Data.Models;
 using FDMS_API.Extentions;
 using FDMS_API.Models.DTOs;
+using FDMS_API.Models.DTOs.Flight;
 using FDMS_API.Models.ResponseModel;
 using FDMS_API.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;

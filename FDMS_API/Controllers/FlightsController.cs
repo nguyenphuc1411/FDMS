@@ -1,6 +1,6 @@
 ﻿using FDMS_API.Data.Models;
 using FDMS_API.Extentions;
-using FDMS_API.Models.DTOs;
+using FDMS_API.Models.DTOs.Flight;
 using FDMS_API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -18,26 +18,26 @@ namespace FDMS_API.Controllers
         {
             _service = service;
         }
-        [Authorize(Roles ="Admin")]
+        [Authorize(Policy ="RequireAdmin")]
         [HttpPost]
         public async Task<IActionResult> CreateFlightt(FlightDTO flight)
         {
-            var response = await _service.CreateNewFlight(flight);
-            return StatusCode(response.StatusCode, response);
+            var result = await _service.CreateNewFlight(flight);
+            return StatusCode(result.StatusCode, result);
         }
         [Authorize]
         [HttpGet("current-flight")]
         public async Task<IActionResult> GetCurrentFlight()
         {
-            var response = await _service.GetCurrentFlight();
-            return StatusCode(response.StatusCode, response);
+            var result = await _service.GetCurrentFlight();
+            return StatusCode(result.StatusCode, result);
         }
-        [Authorize(Roles ="Admin")]
+        [Authorize(Policy ="RequireAdmin")]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var response = await _service.Get();
-            return StatusCode(response.StatusCode, response);
+            var result = await _service.Get();
+            return StatusCode(result.StatusCode, result);
         }
     }
 }

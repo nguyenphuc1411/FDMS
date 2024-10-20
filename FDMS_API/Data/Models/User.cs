@@ -14,7 +14,7 @@ namespace FDMS_API.Data.Models
         [Column(TypeName = "varchar(11)")]
         public string Phone { get; set; }
         [Column(TypeName = "varchar(max)")]
-        public string PasswordHash { get; set; }
+        public string? PasswordHash { get; set; }
         public bool IsTerminated { get; set; }
         [Column(TypeName = "varchar(20)")]
         public string Role { get; set; }

@@ -23,20 +23,20 @@ namespace FDMS_API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDTO login)
         {        
-            var response = await _service.Login(login);
-            return StatusCode(response.StatusCode, response);
+            var result = await _service.Login(login);
+            return StatusCode(result.StatusCode, result);
         }
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword(ForgotPassword request)
         {
-            var response = await _service.RequestForgotPassword(request);
-            return StatusCode(response.StatusCode, response);
+            var result = await _service.RequestForgotPassword(request);
+            return StatusCode(result.StatusCode, result);
         }
         [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword(ResetPassword request)
         {      
-            var response = await _service.ResetPassword(request);
-            return StatusCode(response.StatusCode, response);
+            var result = await _service.ResetPassword(request);
+            return StatusCode(result.StatusCode, result);
         }
 
 
@@ -44,15 +44,15 @@ namespace FDMS_API.Controllers
         [HttpPost("change-password")]
         public async Task<IActionResult> ChangePassword(ChangePassword request)
         {         
-            var response = await _service.ChangePassword(request);
-            return StatusCode(response.StatusCode, response);
+            var result = await _service.ChangePassword(request);
+            return StatusCode(result.StatusCode, result);
         }
 
         [HttpPost("refresh")]
         public async Task<IActionResult> Refresh(string refreshToken)
         {
-            var response = await _service.RefreshToken(refreshToken);
-            return StatusCode(response.StatusCode,response);
+            var result = await _service.RefreshToken(refreshToken);
+            return StatusCode(result.StatusCode, result);
         }
     }
 }

@@ -2,12 +2,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace FDMS_API.Models.DTOs
+namespace FDMS_API.Models.DTOs.Flight
 {
     public class FlightDTO
     {
-        [Required]        
-        [StringLength(20,MinimumLength =3)]
+        [Required]
+        [StringLength(20, MinimumLength = 3)]
         public string FlightNo { get; set; }
 
         [Required]

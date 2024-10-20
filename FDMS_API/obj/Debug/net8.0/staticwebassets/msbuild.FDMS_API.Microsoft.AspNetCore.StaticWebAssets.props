@@ -1,11 +1,11 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Logo\657060d2-c4b1-411e-b234-cfb26be8684a.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Logo\fc651b41-a794-4ffd-8236-98e353cd8007.png))">
       <SourceType>Package</SourceType>
       <SourceId>FDMS_API</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FDMS_API</BasePath>
-      <RelativePath>Images/Logo/657060d2-c4b1-411e-b234-cfb26be8684a.png</RelativePath>
+      <RelativePath>Images/Logo/fc651b41-a794-4ffd-8236-98e353cd8007.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -14,7 +14,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Logo\657060d2-c4b1-411e-b234-cfb26be8684a.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Images\Logo\fc651b41-a794-4ffd-8236-98e353cd8007.png))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

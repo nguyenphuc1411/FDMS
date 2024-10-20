@@ -58,7 +58,7 @@ namespace FDMS_API.Services.Implementations
                     DateTime expirationToken = DateTime.Now.AddDays(1);
                     var token = new TokenResponse
                     {
-                        AccessToken = GenerateToken(user, _config["JWT:Key"]),
+                        AccessToken = GenerateToken(user.UserID.ToString(), _config["JWT:Key"]),
                         RefreshToken = refreshToken,
                         AccessTokenExpiration = expirationToken
                     };
@@ -102,7 +102,7 @@ namespace FDMS_API.Services.Implementations
                 var user = await _context.Users.FirstOrDefaultAsync(x=>x.UserID == userToken.UserID);
                 var token = new TokenResponse
                 {
-                    AccessToken = GenerateToken(user, _config["JWT:Key"]),
+                    AccessToken = GenerateToken(user.UserID.ToString(), _config["JWT:Key"]),
                     RefreshToken = refreshToken,
                     AccessTokenExpiration = userToken.ExpirationDate
                 };
@@ -133,7 +133,7 @@ namespace FDMS_API.Services.Implementations
                     StatusCode = 400
                 };
             // Tạo token mới
-            var newToken = GenerateToken(user, _config["JWT:Key"]);
+            var newToken = GenerateToken(user.UserID.ToString(), _config["JWT:Key"]);
             // Tạo resetLink
             string resetPasswordLink = $"{"linkfrontend"}/reset-password?email={user.Email}&token={newToken}";
             // Check token hệ thống
@@ -332,13 +332,12 @@ namespace FDMS_API.Services.Implementations
         }
 
 
-        public static string GenerateToken(User user,string JWTkey)
+        public static string GenerateToken(string userID,string JWTkey)
         {
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier,user.UserID.ToString()),
-                new Claim(ClaimTypes.Role,user.Role)
+                new Claim(ClaimTypes.NameIdentifier,userID)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTkey));
@@ -346,7 +345,7 @@ namespace FDMS_API.Services.Implementations
             var tokenDesciption = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(30),
+                Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = creds
             };
             var token = jwtSecurityTokenHandler.CreateToken(tokenDesciption);

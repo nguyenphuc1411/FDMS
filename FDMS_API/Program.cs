@@ -1,9 +1,11 @@
-﻿using FDMS_API.Configurations.Mappings;
+﻿using FDMS_API.Configurations.CustomAuthorize.Admin;
+using FDMS_API.Configurations.Mappings;
 using FDMS_API.Configurations.Middlewares;
 using FDMS_API.Data;
 using FDMS_API.Services.Implementations;
 using FDMS_API.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
@@ -39,6 +41,20 @@ builder.Services.AddTransient<IMailService, MailService>();
 builder.Services.AddScoped<IGroupService, GroupService>();
 
 builder.Services.AddScoped<ITypeService, TypeService>();
+
+// Đăng ký custom authorization handler
+builder.Services.AddScoped<IAuthorizationHandler, AdminAuthorizationHandler>();
+
+// Khai báo các Custom Authorization
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("RequireAdmin", policy =>
+    {
+        policy.AddRequirements(new AdminRequirement());
+    });
+});
+
+
 // Khai báo sử dụng JWT
 
 var key = Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]);

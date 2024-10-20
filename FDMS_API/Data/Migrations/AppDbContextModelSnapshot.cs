@@ -148,6 +148,9 @@ namespace FDMS_API.Data.Migrations
 
                     b.HasKey("GroupID");
 
+                    b.HasIndex("GroupName")
+                        .IsUnique();
+
                     b.HasIndex("UserID");
 
                     b.ToTable("Groups");
@@ -282,7 +285,6 @@ namespace FDMS_API.Data.Migrations
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("PasswordHash")
-                        .IsRequired()
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("Phone")
@@ -304,7 +306,7 @@ namespace FDMS_API.Data.Migrations
                             Email = "admin@vietjetair.com",
                             IsTerminated = false,
                             Name = "Admin default",
-                            PasswordHash = "$2a$11$2RlvPrcY2RVQeDePJ/2e.OtUmobFh5OJDhFcM0voRLWW8tqn20DYq",
+                            PasswordHash = "$2a$11$Xz1j4uU8GX50sQAU53quoOvbI5toO/Fm8Xh9Dlz0DSpo3YDSn.rMq",
                             Phone = "0898827656",
                             Role = "Admin"
                         });

@@ -1,4 +1,4 @@
-﻿namespace FDMS_API.Models.DTOs
+﻿namespace FDMS_API.Models.DTOs.Flight
 {
     public class GetCurrentFlight
     {

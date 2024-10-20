@@ -40,110 +40,98 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> UpdateSystemSetting(Models.DTOs.SettingDTO systemSetting)
+        public async Task<APIResponse> UpdateSystemSetting(SettingDTO systemSetting)
         {
-            try
+
+            var settingCurrent = await _context.SystemSettings.FirstOrDefaultAsync();
+            if (settingCurrent != null)
             {
-                var settingCurrent = await _context.SystemSettings.FirstOrDefaultAsync();
-                if (settingCurrent != null)
+                // Đã có thì xóa ảnh cũ và upload ảnh
+                _fileService.DeleteImage(settingCurrent.LogoURL, "Images");
+                // Upload ảnh mới
+                var uploadResult = await _fileService.UploadImage(systemSetting.ImageFile, "Logo");
+
+                if (uploadResult.Success)
                 {
-                    // Đã có thì xóa ảnh cũ và upload ảnh
-                    _fileService.DeleteImage(settingCurrent.LogoURL,"Images");
-                    // Upload ảnh mới
-                    var uploadResult = await _fileService.UploadImage(systemSetting.ImageFile, "Logo");
+                    settingCurrent.Theme = systemSetting.Theme;
+                    settingCurrent.LogoURL = uploadResult.FilePath.ToString();
+                    settingCurrent.IsCaptchaRequired = systemSetting.IsCaptchaRequired;
 
-                    if (uploadResult.Success)
+                    var result = await _context.SaveChangesAsync();
+                    if (result > 0)
                     {
-                        settingCurrent.Theme = systemSetting.Theme;
-                        settingCurrent.LogoURL = uploadResult.FilePath.ToString();
-                        settingCurrent.IsCaptchaRequired = systemSetting.IsCaptchaRequired;
-
-                        var result = await _context.SaveChangesAsync();
-                        if (result > 0)
+                        return new APIResponse()
                         {
-                            return new APIResponse()
-                            {
-                                Success = true,
-                                Message = "Updated setting",
-                                StatusCode = 200
-                            };
-                        }
-                        else
-                        {
-                            return new APIResponse()
-                            {
-                                Success = false,
-                                Message = "Update failed",
-                                StatusCode = 400
-                            };
-                        }
+                            Success = true,
+                            Message = "Updated setting",
+                            StatusCode = 200
+                        };
                     }
                     else
                     {
                         return new APIResponse()
                         {
                             Success = false,
-                            Message = "An error while uploading",
+                            Message = "Update failed",
                             StatusCode = 400
                         };
                     }
-
                 }
                 else
                 {
-                    // Upload ảnh mới
-                    var uploadResult = await _fileService.UploadImage(systemSetting.ImageFile, "Logo");
-
-                    if (uploadResult.Success)
+                    return new APIResponse()
                     {
-                        var setting = new Data.Models.SystemSetting
-                        {
-                            Theme = systemSetting.Theme,
-                            LogoURL = uploadResult.FilePath.ToString(),
-                            IsCaptchaRequired = systemSetting.IsCaptchaRequired
-                        };
-                        _context.SystemSettings.Add(setting);
+                        Success = false,
+                        Message = "An error while uploading",
+                        StatusCode = 400
+                    };
+                }
 
-                        var result = await _context.SaveChangesAsync();
-                        if (result > 0)
+            }
+            else
+            {
+                // Upload ảnh mới
+                var uploadResult = await _fileService.UploadImage(systemSetting.ImageFile, "Logo");
+
+                if (uploadResult.Success)
+                {
+                    var setting = new Data.Models.SystemSetting
+                    {
+                        Theme = systemSetting.Theme,
+                        LogoURL = uploadResult.FilePath.ToString(),
+                        IsCaptchaRequired = systemSetting.IsCaptchaRequired
+                    };
+                    _context.SystemSettings.Add(setting);
+
+                    var result = await _context.SaveChangesAsync();
+                    if (result > 0)
+                    {
+                        return new APIResponse()
                         {
-                            return new APIResponse()
-                            {
-                                Success = true,
-                                Message = "Created setting",
-                                StatusCode = 200
-                            };
-                        }
-                        else
-                        {
-                            return new APIResponse()
-                            {
-                                Success = false,
-                                Message = "Create failed",
-                                StatusCode = 400
-                            };
-                        }
+                            Success = true,
+                            Message = "Created setting",
+                            StatusCode = 200
+                        };
                     }
                     else
                     {
                         return new APIResponse()
                         {
                             Success = false,
-                            Message = "An error while uploading",
+                            Message = "Create failed",
                             StatusCode = 400
                         };
                     }
                 }
-
-            }
-            catch (Exception ex)
-            {
-                return new APIResponse()
+                else
                 {
-                    Success = false,
-                    Message = ex.Message,
-                    StatusCode = 500
-                };
+                    return new APIResponse()
+                    {
+                        Success = false,
+                        Message = "An error while uploading",
+                        StatusCode = 400
+                    };
+                }
             }
         }
     }

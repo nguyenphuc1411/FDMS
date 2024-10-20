@@ -4,6 +4,7 @@ using FDMS_API.Data;
 using FDMS_API.Data.Models;
 using FDMS_API.Extentions;
 using FDMS_API.Models.DTOs;
+using FDMS_API.Models.DTOs.Type;
 using FDMS_API.Models.ResponseModel;
 using FDMS_API.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,16 @@ namespace FDMS_API.Services.Implementations
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
+                var isExists = await _context.Types.AnyAsync(x=>x.TypeName == requestModel.TypeName);
+                if (isExists)
+                {
+                    return new APIResponse
+                    {
+                        Success = false,
+                        Message = "Document type is exists in system",
+                        StatusCode = 400
+                    };
+                }
                 var newType = new FDMS_API.Data.Models.Type
                 {
                     TypeName = requestModel.TypeName,
@@ -34,40 +45,62 @@ namespace FDMS_API.Services.Implementations
                     UserID = _userService.GetUserId(),
                 };
                 await _context.Types.AddAsync(newType);
-                await _context.SaveChangesAsync();
-                var listUserGroups = new List<Permission>();
-                if (requestModel.Permissions != null && requestModel.Permissions.Count() > 0)
-                    foreach (var permission in requestModel.Permissions)
-                    {
-                        await _context.Permissions.AddAsync(new Permission
-                        {
-                            TypeID = newType.TypeID,
-                            GroupID = permission.GroupID,
-                            CanRead = permission.CanRead,
-                            CanModify = permission.CanModify
-                        });
-                    }
-
                 var result = await _context.SaveChangesAsync();
                 if (result > 0)
-                {
-                    await transaction.CommitAsync();
-                    return new APIResponse
+                {     
+                    if (requestModel.Permissions.Count() > 0)
                     {
-                        Success = true,
-                        Message = "Create type success",
-                        StatusCode = 201
-                    };
-                }
-                else
-                {
-                    return new APIResponse
+                        var listUserGroups = new List<Permission>();
+                        foreach (var permission in requestModel.Permissions)
+                        {
+                            await _context.Permissions.AddAsync(new Permission
+                            {
+                                TypeID = newType.TypeID,
+                                GroupID = permission.GroupID,
+                                CanRead = permission.CanRead,
+                                CanModify = permission.CanModify
+                            });
+                        }
+
+                        var result1 = await _context.SaveChangesAsync();
+                        if (result1 > 0)
+                        {
+                            await transaction.CommitAsync();
+                            return new APIResponse
+                            {
+                                Success = true,
+                                Message = "Create document type and permission success",
+                                StatusCode = 201
+                            };
+                        }
+                        else
+                        {
+                            return new APIResponse
+                            {
+                                Success = false,
+                                Message = "Create document type and permission failed",
+                                StatusCode = 400
+                            };
+                        }
+                    }
+                    else
                     {
-                        Success = false,
-                        Message = "An error",
-                        StatusCode = 400
-                    };
+                        await transaction.CommitAsync();
+                        return new APIResponse
+                        {
+                            Success = true,
+                            Message = "Create document type success",
+                            StatusCode = 201
+                        };
+                    }
                 }
+                return new APIResponse
+                {
+                    Success = false,
+                    Message = "Create document type failed",
+                    StatusCode = 400
+                };
+
             }
             catch (Exception ex)
             {
@@ -85,20 +118,14 @@ namespace FDMS_API.Services.Implementations
         public async Task<APIResponse> Get(int? pageSize, int? currentPage)
         {
             var listType = await _context.Types
-                .Select(t => new GetType
+                .Select(t => new GetTypes
                 {
                     TypeID = t.TypeID,
                     TypeName = t.TypeName,
                     CreatedAt = t.Created_At,
                     Note = t.Note,
                     Creator = t.User.Name,
-                    GroupPermissions = t.Permissions.Select(p => new GroupPermission
-                    {
-                        GroupID = p.GroupID,
-                        GroupName = p.Group.GroupName,
-                        CanModify = p.CanRead,
-                        CanRead = p.CanRead
-                    }).ToList()
+                    TotalGroups = t.Permissions.Count()
                 })
                 .ToListAsync();
 
@@ -133,8 +160,6 @@ namespace FDMS_API.Services.Implementations
                     TypeID = t.TypeID,
                     TypeName = t.TypeName,
                     Note = t.Note,
-                    CreatedAt = t.Created_At,
-                    Creator = t.User.Name,
                     GroupPermissions = t.Permissions.Select(p =>new GroupPermission
                     {
                         GroupID = p.GroupID,
@@ -176,59 +201,53 @@ namespace FDMS_API.Services.Implementations
 
                 type.TypeName = requestModel.TypeName;
                 type.Note = requestModel.Note;
+                _context.Types.Update(type);
 
-                var newPermissionDTOs = requestModel.Permissions ?? new List<PermissionDTO>();
-                if (newPermissionDTOs.Count() > 0)
+                var permissionWithType = await _context.Permissions.Where(x => x.TypeID == typeID).ToListAsync();
+               
+                if (requestModel.Permissions.Count() > 0)
                 {
-                    var currentPermissions = await _context.Permissions.Where(x => x.TypeID == typeID).ToListAsync();
-
-                    foreach (var item in currentPermissions)
+                    _context.Permissions.RemoveRange(permissionWithType);
+                    await  _context.SaveChangesAsync();
+                    foreach (var item in requestModel.Permissions)
                     {
-                        // Xóa hoặc cập nhật những bảng ghi không phải permission trong list các permission mới
-                        if (!newPermissionDTOs.Any(x=>x.TypeID == typeID && x.GroupID == item.GroupID ))
-                        { 
-                            _context.Permissions.Remove(item);
-                        }
-                        else
-                        {
-                            var updatePermission = newPermissionDTOs.FirstOrDefault(x => x.TypeID == typeID && x.GroupID == item.GroupID);
-                            item.CanRead = updatePermission.CanRead;
-                            item.CanModify = updatePermission.CanModify;
-                            _context.Permissions.Update(item);
-                        }                    
-                    }
-                    // Thêm những Permission mới vào db
-                    foreach (var item in newPermissionDTOs)
-                    {
-                        if (!currentPermissions.Any(x => x.GroupID == item.GroupID 
-                        && x.TypeID ==typeID))
-                        {
-                            var permission = new Permission
-                            {
-                                GroupID = item.GroupID,
-                                TypeID = typeID,
-                                CanRead = item.CanRead,
-                                CanModify = item.CanModify
-                            };
-                            await _context.Permissions.AddAsync(permission);
-                        }                 
+                        await _context.Permissions.AddAsync(new Permission {
+                            TypeID = typeID,
+                            GroupID = item.GroupID,
+                            CanModify = item.CanModify,
+                            CanRead = item.CanRead
+                        });
                     }
                 }
-                await _context.SaveChangesAsync();
-                await transaction.CommitAsync();
+                else
+                {
+                    _context.Permissions.RemoveRange(permissionWithType);
+                }
+                var result = await _context.SaveChangesAsync();
+                if(result > 0)
+                {
+                    await transaction.CommitAsync();
+                    return new APIResponse
+                    {
+                        Success = true,
+                        Message = "Update document type success",
+                        StatusCode = 200
+                    };
+                }
                 return new APIResponse
                 {
-                    Success = true,
-                    Message = "Document type updated successfully",
-                    StatusCode = 200
+                    Success = false,
+                    Message = "Update document type failed",
+                    StatusCode = 400
                 };
+
             }
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
                 return new APIResponse
                 {
-                    Success = true,
+                    Success = false,
                     Message = ex.Message,
                     StatusCode = 500
                 };

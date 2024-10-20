@@ -3,6 +3,8 @@ using FDMS_API.Data;
 using FDMS_API.Data.Models;
 using FDMS_API.Extentions;
 using FDMS_API.Models.DTOs;
+using FDMS_API.Models.DTOs.Group;
+using FDMS_API.Models.DTOs.User;
 using FDMS_API.Models.ResponseModel;
 using FDMS_API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +28,13 @@ namespace FDMS_API.Services.Implementations
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
+                bool isExists = await _context.Groups.AnyAsync(x => x.GroupName == requestModel.GroupName);
+                if (isExists) return new APIResponse
+                {
+                    Success = false,
+                    Message = "GroupName is exists in system",
+                    StatusCode = 400
+                };
                 var newGroup = new Group
                 {
                     GroupName = requestModel.GroupName,
@@ -33,21 +42,41 @@ namespace FDMS_API.Services.Implementations
                     UserID = _userService.GetUserId(),
                 };
                 await _context.Groups.AddAsync(newGroup);
-                await _context.SaveChangesAsync();
-                var listUserGroups = new List<GroupUser>();
-                if (requestModel.UserIDs != null && requestModel.UserIDs.Count()>0)
-                    foreach (var userID in requestModel.UserIDs)
-                    {
-                        await _context.GroupUsers.AddAsync(new GroupUser
-                        {
-                            UserID = userID,
-                            GroupID = newGroup.GroupID
-                        });
-                    }
-
                 var result = await _context.SaveChangesAsync();
                 if (result > 0)
-                {
+                {               
+                    if (requestModel.UserIDs.Count() > 0)
+                    {
+                        var listUserGroups = new List<GroupUser>();
+                        foreach (var userID in requestModel.UserIDs)
+                        {
+                            await _context.GroupUsers.AddAsync(new GroupUser
+                            {
+                                UserID = userID,
+                                GroupID = newGroup.GroupID
+                            });
+                        }
+                        var result1 = await _context.SaveChangesAsync();
+                        if (result1 > 0)
+                        {
+                            await transaction.CommitAsync();
+                            return new APIResponse
+                            {
+                                Success = true,
+                                Message = "Create group and group users success",
+                                StatusCode = 201
+                            };
+                        }
+                        else
+                        {
+                            return new APIResponse
+                            {
+                                Success = false,
+                                Message = "An error",
+                                StatusCode = 400
+                            };
+                        }
+                    }
                     await transaction.CommitAsync();
                     return new APIResponse
                     {
@@ -61,10 +90,10 @@ namespace FDMS_API.Services.Implementations
                     return new APIResponse
                     {
                         Success = false,
-                        Message = "An error",
+                        Message = "Creae Group failed",
                         StatusCode = 400
                     };
-                }
+                }                               
             }
             catch (Exception ex)
             {
@@ -82,21 +111,14 @@ namespace FDMS_API.Services.Implementations
         public async Task<APIResponse> Get(int? pageSize,int? currentPage)
         {
             var listGroup = await _context.Groups
-              .Select(x => new GetGroup
+              .Select(x => new GetGroups
               {
                   GroupID = x.GroupID,
                   GroupName = x.GroupName,
                   Note = x.Note,
                   CreatedAt = x.Created_At,
                   Creator = x.User.Email,
-                  Users = x.GroupUsers.Select(gu => new UserDTO
-                  {
-                      UserID = gu.UserID,
-                      Name = gu.User.Name,
-                      Email = gu.User.Email,
-                      Phone = gu.User.Phone,
-                      Role = gu.User.Role
-                  }).ToList(),
+                  TotalMembers = x.GroupUsers.Count,
               }).ToListAsync();
             if (pageSize.HasValue && currentPage.HasValue)
             {
@@ -131,14 +153,11 @@ namespace FDMS_API.Services.Implementations
                     GroupID = g.GroupID,
                     GroupName = g.GroupName,
                     Note = g.Note,
-                    CreatedAt = g.Created_At,
-                    Creator = g.User.Email,
-                    Users = g.GroupUsers.Select(gu=>new UserDTO
+                    Users = g.GroupUsers.Select(gu=>new GetUser
                     {
                         UserID = gu.User.UserID,
                         Name = gu.User.Name,
                         Email = gu.User.Email,
-                        Phone = gu.User.Phone,
                         Role = gu.User.Role
                     }).ToList()
 
@@ -177,12 +196,11 @@ namespace FDMS_API.Services.Implementations
 
                 group.GroupName = requestModel.GroupName;
                 group.Note = requestModel.Note;
-
-                var newGroupUsers = requestModel.UserIDs ?? new List<int>(); 
-                if(newGroupUsers.Count()>0)
-                {
-                    var currentGroupUsers = await _context.GroupUsers.Where(x => x.GroupID == groupID).ToListAsync();
-
+                _context.Groups.Update(group);
+                var newGroupUsers = requestModel.UserIDs;
+                var currentGroupUsers = await _context.GroupUsers.Where(x => x.GroupID == groupID).ToListAsync();
+                if (newGroupUsers.Count()>0)
+                {                 
                     foreach (var item in currentGroupUsers)
                     {
                         // Xóa những bảng ghi không phải userID mới
@@ -204,14 +222,31 @@ namespace FDMS_API.Services.Implementations
                         }
                     }
                 }
-                await _context.SaveChangesAsync();
-                await transaction.CommitAsync();
-                return new APIResponse
+                else
                 {
-                    Success = true,
-                    Message = "Group updated successfully",
-                    StatusCode = 200
-                };
+                    _context.GroupUsers.RemoveRange(currentGroupUsers);
+                }
+                var result =  await _context.SaveChangesAsync();
+                if (result > 0)
+                {
+                    await transaction.CommitAsync();
+                    return new APIResponse
+                    {
+                        Success = true,
+                        Message = "Group updated successfully",
+                        StatusCode = 200
+                    };
+                }
+                else
+                {
+                    return new APIResponse
+                    {
+                        Success = false,
+                        Message = "Group updated failed",
+                        StatusCode = 400
+                    };
+                }
+               
             }
             catch (Exception ex)
             {

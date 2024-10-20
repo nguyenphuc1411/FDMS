@@ -1,4 +1,4 @@
-﻿namespace FDMS_API.Models.DTOs
+﻿namespace FDMS_API.Models.DTOs.Flight
 {
     public class GetFlight
     {
@@ -6,7 +6,7 @@
         public string FlightNo { get; set; }
         public string Route { get; set; }
         public DateOnly DepartureDate { get; set; }
-        public int TotalDocument {  get; set; }
+        public int TotalDocument { get; set; }
         public bool IsFinished { get; set; }
     }
 }

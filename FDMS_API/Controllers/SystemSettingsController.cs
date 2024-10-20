@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FDMS_API.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "RequireAdmin")]
     [Route("api/[controller]")]
     [ApiController]
     public class SystemSettingsController : ControllerBase
