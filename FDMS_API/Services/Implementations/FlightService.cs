@@ -46,11 +46,25 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> Get()
+        public async Task<APIResponse> Get(string? search, string? flightNo, DateOnly? flightDate)
         {
             var currentDate = DateOnly.FromDateTime(DateTime.Now);
             var currentTime = TimeOnly.FromDateTime(DateTime.Now);
-            var listFlight = await _context.Flights.Select(f => new GetFlight
+            var listFlights = _context.Flights.AsQueryable();
+            if(!string.IsNullOrEmpty(search))
+            {
+                listFlights = listFlights.Where(x => x.FlightNo.Contains(search));
+            }
+            if (!string.IsNullOrEmpty(flightNo))
+            {
+                listFlights = listFlights.Where(x=>x.FlightNo == flightNo);
+            }
+            if (flightDate.HasValue)
+            {
+                listFlights = listFlights.Where(x => x.FlightDate == flightDate);
+            }
+            
+            var finalFlights = await listFlights.Select(f => new GetFlight
             {
                 FlightID = f.FlightID,
                 FlightNo = f.FlightNo,
@@ -67,7 +81,7 @@ namespace FDMS_API.Services.Implementations
             {
                 Success = true,
                 Message = "Get flights success",
-                Data = listFlight,
+                Data = finalFlights,
                 StatusCode = 200
             };
         }

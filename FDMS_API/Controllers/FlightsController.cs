@@ -34,9 +34,9 @@ namespace FDMS_API.Controllers
         }
         [Authorize(Policy ="RequireAdmin")]
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(string? search,string? flightNo,DateOnly? flightDate)
         {
-            var result = await _service.Get();
+            var result = await _service.Get(search, flightNo,flightDate);
             return StatusCode(result.StatusCode, result);
         }
     }

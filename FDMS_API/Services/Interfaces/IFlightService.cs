@@ -9,6 +9,6 @@ namespace FDMS_API.Services.Interfaces
 
         Task<APIResponse> GetCurrentFlight();
 
-        Task<APIResponse> Get();
+        Task<APIResponse> Get(string? search, string? flightNo, DateOnly? flightDate);
     }
 }
