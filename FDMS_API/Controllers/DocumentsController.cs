@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FDMS_API.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FDMS_API.Controllers
@@ -7,5 +8,17 @@ namespace FDMS_API.Controllers
     [ApiController]
     public class DocumentsController : ControllerBase
     {
+        private readonly IDocumentService _service;
+
+        public DocumentsController(IDocumentService service)
+        {
+            _service = service;
+        }
+        [HttpGet]
+        public async Task<IActionResult> Get(string? search, int? typeID,DateOnly? createdDate)
+        {
+            var result = await _service.Get(search, typeID, createdDate);
+            return StatusCode(result.StatusCode, result);
+        }
     }
 }

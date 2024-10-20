@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
-    <Folder Include="Models\DTOs\Document\" />
     <Folder Include="wwwroot\Images\" />
     <Folder Include="wwwroot\Images\Logo\" />
     <Folder Include="wwwroot\Documents\" />
