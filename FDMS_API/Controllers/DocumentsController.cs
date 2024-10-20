@@ -15,7 +15,7 @@ namespace FDMS_API.Controllers
             _service = service;
         }
         [HttpGet]
-        public async Task<IActionResult> Get(string? search, int? typeID,DateOnly? createdDate)
+        public async Task<IActionResult> Get(string? search, int? typeID,DateOnly? createdDate,int? pageSize,int? currentPage)
         {
             var result = await _service.Get(search, typeID, createdDate);
             return StatusCode(result.StatusCode, result);

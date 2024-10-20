@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using FDMS_API.Data;
 using FDMS_API.Data.Models;
 using FDMS_API.Extentions;
@@ -17,10 +18,12 @@ namespace FDMS_API.Services.Implementations
     {
         private readonly AppDbContext _context;
         private readonly IUserService _userService;
-        public GroupService(AppDbContext context, IUserService userService)
+        private readonly IMapper _mapper;
+        public GroupService(AppDbContext context, IUserService userService, IMapper mapper)
         {
             _context = context;
             _userService = userService;
+            _mapper = mapper;
         }
 
         public async Task<APIResponse> Create(GroupDTO requestModel)
@@ -110,16 +113,7 @@ namespace FDMS_API.Services.Implementations
 
         public async Task<APIResponse> Get(int? pageSize,int? currentPage)
         {
-            var listGroup = await _context.Groups
-              .Select(x => new GetGroups
-              {
-                  GroupID = x.GroupID,
-                  GroupName = x.GroupName,
-                  Note = x.Note,
-                  CreatedAt = x.Created_At,
-                  Creator = x.User.Email,
-                  TotalMembers = x.GroupUsers.Count,
-              }).ToListAsync();
+            var listGroup = await _context.Groups.ProjectTo<GetGroups>(_mapper.ConfigurationProvider).ToListAsync();
             if (pageSize.HasValue && currentPage.HasValue)
             {
                
