@@ -54,24 +54,38 @@ namespace FDMS_API.Services.Implementations
                 }
                 if (login.Password.VerifyPassword(user.PasswordHash))
                 {
-                    var refreshToken = GenerateRefreshToken();
+                    // Kiểm tra nếu token có rồi thì cập nhật nếu chưa thì tạo
+
+                    var refreshTokenInSystem = await _context.UserTokens.FirstOrDefaultAsync(x => x.UserID == user.UserID && x.TokenType == "REFRESH TOKEN");
+                    var token = new TokenResponse();
                     DateTime expirationToken = DateTime.Now.AddDays(1);
-                    var token = new TokenResponse
+
+                    if (refreshTokenInSystem != null)
                     {
-                        AccessToken = GenerateToken(user.UserID.ToString(), _config["JWT:Key"]),
-                        RefreshToken = refreshToken,
-                        AccessTokenExpiration = expirationToken
-                    };
-                    // Lưu Refresh token vào database
-                    var newUserToken = new UserToken
+                        // đã tồn tại token cập nhật thời gian hết hạn
+                        refreshTokenInSystem.ExpirationDate = expirationToken;
+                        _context.UserTokens.Update(refreshTokenInSystem);
+                        token.AccessToken = GenerateToken(user.UserID.ToString(), _config["JWT:Key"]);
+                        token.RefreshToken = refreshTokenInSystem.Token;
+                        token.AccessTokenExpiration = expirationToken;
+                    }
+                    else
                     {
-                        Token = refreshToken,
-                        TokenType = "REFRESH TOKEN",
-                        ExpirationDate = expirationToken,
-                        UserID = user.UserID,
-                        Email = user.Email
-                    };
-                    await _context.UserTokens.AddAsync(newUserToken);
+                        var refreshToken = GenerateRefreshToken();
+                        token.AccessToken = GenerateToken(user.UserID.ToString(), _config["JWT:Key"]);
+                        token.RefreshToken = refreshToken;
+                        token.AccessTokenExpiration = expirationToken;                     
+                        // Lưu Refresh token vào database
+                        var newUserToken = new UserToken
+                        {
+                            Token = refreshToken,
+                            TokenType = "REFRESH TOKEN",
+                            ExpirationDate = expirationToken,
+                            UserID = user.UserID,
+                            Email = user.Email
+                        };
+                        await _context.UserTokens.AddAsync(newUserToken);
+                    }              
                     await _context.SaveChangesAsync();
                     return new APIResponse
                     {
