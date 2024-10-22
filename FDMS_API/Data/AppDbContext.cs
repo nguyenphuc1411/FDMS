@@ -12,6 +12,7 @@ namespace FDMS_API.Data
         public DbSet<Group> Groups { get; set; }
         public DbSet<GroupUser> GroupUsers { get; set; }
         public DbSet<Document> Documents { get; set; }
+        public DbSet<VersionDocument> VersionDocuments { get; set; }    
         public DbSet<Models.Type> Types { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<Flight> Flights { get; set; }
@@ -33,6 +34,7 @@ namespace FDMS_API.Data
                 options.HasMany(u => u.GroupUsers).WithOne(ug => ug.User).HasForeignKey(ug => ug.UserID);
                 options.HasMany(u => u.Groups).WithOne(gp => gp.User).HasForeignKey(gp => gp.UserID);
                 options.HasMany(u => u.UserTokens).WithOne(t => t.User).HasForeignKey(gp => gp.UserID);
+                options.HasMany(u => u.Versions).WithOne(v => v.User).HasForeignKey(v => v.UserID);
             });
             // Foreign Key for Flight
             modelBuilder.Entity<Flight>(options =>
@@ -41,8 +43,12 @@ namespace FDMS_API.Data
                 options.HasMany(f => f.Reports).WithOne(c => c.Flight).HasForeignKey(c => c.FlightID);
             });
             // Foreign Key for Document
-            modelBuilder.Entity<Document>()
-                .HasMany(d => d.DocumentPermissions).WithOne(dp => dp.Document).HasForeignKey(dp => dp.DocumentID);
+            modelBuilder.Entity<Document>(options =>
+            {
+                options.HasMany(d => d.DocumentPermissions).WithOne(dp => dp.Document).HasForeignKey(dp => dp.DocumentID);
+                options.HasMany(d => d.Versions).WithOne(v => v.Document).HasForeignKey(v => v.DocumentID);
+            });
+                
             // Foreign Key for DocumentType
             modelBuilder.Entity<Models.Type>(options =>
             {

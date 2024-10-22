@@ -33,7 +33,7 @@ namespace FDMS_API.Services.Implementations
             }
             if(createdDate.HasValue)
             {
-                listDocuments = listDocuments.Where(x =>DateOnly.FromDateTime(x.Created_At.Date) == createdDate);
+                listDocuments = listDocuments.Where(x =>DateOnly.FromDateTime(x.UploadDate.Date) == createdDate);
             }      
             var finalDocuments = await listDocuments.ProjectTo<GetDocuments>(_mapper.ConfigurationProvider).ToListAsync();
             if (pageSize.HasValue && currentPage.HasValue)

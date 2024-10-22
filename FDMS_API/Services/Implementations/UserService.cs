@@ -194,7 +194,12 @@ namespace FDMS_API.Services.Implementations
                     Message = "Email already exists in system",
                     StatusCode = 400
                 };
-                var newUser = _mapper.Map<User>(userDTO);
+                var newUser = new User
+                {
+                    Name = userDTO.Name,
+                    Email = userDTO.Email,
+                    Phone = userDTO.Phone
+                };
                 newUser.Role = "USER";
                 newUser.PasswordHash = "User@123".HashPassword();
                 await _context.Users.AddAsync(newUser);

@@ -4,16 +4,19 @@ using FDMS_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace FDMS_API.Data.Migrations
+namespace FDMS_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241022141054_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,15 +33,15 @@ namespace FDMS_API.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DocumentID"));
 
-                    b.Property<DateTime>("Created_At")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("FilePath")
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.Property<int>("FlightID")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsAdminUpload")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -50,10 +53,13 @@ namespace FDMS_API.Data.Migrations
                     b.Property<int>("TypeID")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("UploadDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Version")
+                    b.Property<decimal?>("Version")
                         .HasColumnType("decimal(2,1)");
 
                     b.HasKey("DocumentID");
@@ -147,9 +153,6 @@ namespace FDMS_API.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("GroupID");
-
-                    b.HasIndex("GroupName")
-                        .IsUnique();
 
                     b.HasIndex("UserID");
 
@@ -306,7 +309,7 @@ namespace FDMS_API.Data.Migrations
                             Email = "admin@vietjetair.com",
                             IsTerminated = false,
                             Name = "Admin default",
-                            PasswordHash = "$2a$11$Xz1j4uU8GX50sQAU53quoOvbI5toO/Fm8Xh9Dlz0DSpo3YDSn.rMq",
+                            PasswordHash = "$2a$11$gA37cOVnvn6GSm0q2Sot8eR4vZYZUtrToeFrpgZx7D83c1JJx63l6",
                             Phone = "0898827656",
                             Role = "Admin"
                         });
@@ -346,6 +349,43 @@ namespace FDMS_API.Data.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("UserTokens");
+                });
+
+            modelBuilder.Entity("FDMS_API.Data.Models.VersionDocument", b =>
+                {
+                    b.Property<int>("VersionID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VersionID"));
+
+                    b.Property<int>("DocumentID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("UploadDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("VersionNumber")
+                        .HasColumnType("decimal(2,1)");
+
+                    b.HasKey("VersionID");
+
+                    b.HasIndex("DocumentID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("VersionDocuments");
                 });
 
             modelBuilder.Entity("FDMS_API.Data.Models.Document", b =>
@@ -495,9 +535,30 @@ namespace FDMS_API.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("FDMS_API.Data.Models.VersionDocument", b =>
+                {
+                    b.HasOne("FDMS_API.Data.Models.Document", "Document")
+                        .WithMany("Versions")
+                        .HasForeignKey("DocumentID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("FDMS_API.Data.Models.User", "User")
+                        .WithMany("Versions")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Document");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("FDMS_API.Data.Models.Document", b =>
                 {
                     b.Navigation("DocumentPermissions");
+
+                    b.Navigation("Versions");
                 });
 
             modelBuilder.Entity("FDMS_API.Data.Models.Flight", b =>
@@ -538,6 +599,8 @@ namespace FDMS_API.Data.Migrations
                     b.Navigation("Types");
 
                     b.Navigation("UserTokens");
+
+                    b.Navigation("Versions");
                 });
 #pragma warning restore 612, 618
         }

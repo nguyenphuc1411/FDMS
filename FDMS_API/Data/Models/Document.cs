@@ -10,11 +10,12 @@ namespace FDMS_API.Data.Models
         [Column(TypeName = "nvarchar(255)")]
         public string Name { get; set; }
         [Column(TypeName = "decimal(2,1)")]
-        public decimal Version {  get; set; }
+        public decimal? Version {  get; set; }
         public string? Note {  get; set; }
         [Column(TypeName = "varchar(255)")]
         public string FilePath {  get; set; }
-        public DateTime Created_At { get; set; } = DateTime.Now;
+        public DateTime UploadDate { get; set; } = DateTime.Now;
+        public bool IsAdminUpload { get; set; } = true;
 
         // Foreign property
 
@@ -29,5 +30,6 @@ namespace FDMS_API.Data.Models
 
 
         public ICollection<DocumentPermission> DocumentPermissions { get; set; }
+        public ICollection<VersionDocument> Versions { get; set; }
     }
 }
