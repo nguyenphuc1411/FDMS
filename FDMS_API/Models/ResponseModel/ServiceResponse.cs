@@ -1,6 +1,6 @@
 ﻿namespace FDMS_API.Models.ResponseModel
 {
-    public class APIResponse
+    public class ServiceResponse
     {
         public bool Success { get; set; }
         public string Message { get; set; }

@@ -25,7 +25,7 @@ namespace FDMS_API.Services.Implementations
             _fileUploadService = fileUploadService;
         }
 
-        public async Task<APIResponse> Get(string? search,int? typeID, DateOnly? createdDate,int? pageSize,int? currentPage)
+        public async Task<ServiceResponse> Get(string? search,int? typeID, DateOnly? createdDate,int? pageSize,int? currentPage)
         {
             var listDocuments = _context.Documents.AsQueryable();
             if (typeID.HasValue)
@@ -44,7 +44,7 @@ namespace FDMS_API.Services.Implementations
             if (pageSize.HasValue && currentPage.HasValue)
             {
                 var pagedResult = finalDocuments.Pagination(pageSize.Value, currentPage.Value);
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = true,
                     Message = "Get document success",
@@ -52,7 +52,7 @@ namespace FDMS_API.Services.Implementations
                     StatusCode = 200
                 };
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get document success",
@@ -61,7 +61,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> GetRecently(int? size)
+        public async Task<ServiceResponse> GetRecently(int? size)
         {
             var recentlyDocuments = await _context.Documents
     .Select(doc => new GetRecentlyDocuments
@@ -79,7 +79,7 @@ namespace FDMS_API.Services.Implementations
     .Select(g => g.FirstOrDefault()) // Chọn tài liệu đầu tiên trong nhóm (tài liệu mới nhất)
     .ToListAsync();
 
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get documents success",
@@ -89,7 +89,7 @@ namespace FDMS_API.Services.Implementations
 
         }
 
-        public async Task<APIResponse> Upload(AdminUploadDocument requestModel)
+        public async Task<ServiceResponse> Upload(AdminUploadDocument requestModel)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
@@ -121,14 +121,14 @@ namespace FDMS_API.Services.Implementations
                             if (result1 > 0)
                             {
                                 await transaction.CommitAsync();
-                                return new APIResponse
+                                return new ServiceResponse
                                 {
                                     Success = true,
                                     Message = "Upload document success",
                                     StatusCode = 201
                                 };
                             }
-                            return new APIResponse
+                            return new ServiceResponse
                             {
                                 Success = false,
                                 Message = "Upload document failed",
@@ -137,7 +137,7 @@ namespace FDMS_API.Services.Implementations
 
                         }
 
-                        return new APIResponse
+                        return new ServiceResponse
                         {
                             Success = false,
                             Message = "Permission document is required",
@@ -146,7 +146,7 @@ namespace FDMS_API.Services.Implementations
                     }
                     else
                     {
-                        return new APIResponse
+                        return new ServiceResponse
                         {
                             Success = false,
                             Message = "Upload new document failed",
@@ -154,7 +154,7 @@ namespace FDMS_API.Services.Implementations
                         };
                     }
                 }
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Upload file failed",
@@ -164,7 +164,7 @@ namespace FDMS_API.Services.Implementations
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = ex.Message,
@@ -174,7 +174,7 @@ namespace FDMS_API.Services.Implementations
            
         }
 
-        public async Task<APIResponse> UploadVersion(VersionDTO requestModel)
+        public async Task<ServiceResponse> UploadVersion(VersionDTO requestModel)
         {
             var uploadResult = await _fileUploadService.UploadDocument(requestModel.File, "Updated");
             if (uploadResult.Success)
@@ -202,7 +202,7 @@ namespace FDMS_API.Services.Implementations
                 var result = await _context.SaveChangesAsync();
                 if (result > 0)
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Upload new version document success",
@@ -211,7 +211,7 @@ namespace FDMS_API.Services.Implementations
                 }
                 else
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "Upload new version document failed",
@@ -219,7 +219,7 @@ namespace FDMS_API.Services.Implementations
                     };
                 }
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = false,
                 Message = "Upload file failed",
@@ -227,7 +227,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> UserUpload(UserUploadDocument requestModel)
+        public async Task<ServiceResponse> UserUpload(UserUploadDocument requestModel)
         {
             var uploadResult = await _fileUploadService.UploadDocument(requestModel.File, "UploadByUser");
             if (uploadResult.Success)
@@ -245,14 +245,14 @@ namespace FDMS_API.Services.Implementations
                 var result = await _context.SaveChangesAsync();
                 if (result > 0)
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Upload document success",
                         StatusCode = 201
                     };
                 }
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Upload document failed",
@@ -261,7 +261,7 @@ namespace FDMS_API.Services.Implementations
             }
             else
             {
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Upload file failed",
@@ -270,7 +270,7 @@ namespace FDMS_API.Services.Implementations
             }
         }
 
-        public async Task<APIResponse> ViewDocs(int documentID)
+        public async Task<ServiceResponse> ViewDocs(int documentID)
         {
             var document = await _context.Documents.Where(x => x.DocumentID == documentID)
                 .Select(doc => new
@@ -295,7 +295,7 @@ namespace FDMS_API.Services.Implementations
                     })
                 })
                 .FirstOrDefaultAsync();
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get docs success",

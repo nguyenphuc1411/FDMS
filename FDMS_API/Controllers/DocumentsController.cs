@@ -7,7 +7,6 @@ using System.Drawing;
 
 namespace FDMS_API.Controllers
 {
-    [Authorize(Policy ="RequireAdmin")]
     [Route("api/[controller]")]
     [ApiController]
     public class DocumentsController : ControllerBase
@@ -37,8 +36,7 @@ namespace FDMS_API.Controllers
             var result = await _service.Upload(documentDTO);
             return StatusCode(result.StatusCode, result);
         }
-
-        [Authorize(Policy ="CanEdit")]
+        [Authorize(Policy = "RequireEditPermission")]
         [HttpPost("upload-version")]
         public async Task<IActionResult> UploadVersion(VersionDTO versionDTO)
         {
@@ -52,6 +50,7 @@ namespace FDMS_API.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
+        [Authorize(Policy = "RequireReadPermission")]
         [HttpGet("{documentID}")]
         public async Task<IActionResult> ViewDocs(int documentID)
         {

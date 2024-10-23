@@ -26,13 +26,13 @@ namespace FDMS_API.Services.Implementations
             _mapper = mapper;
         }
 
-        public async Task<APIResponse> Create(GroupDTO requestModel)
+        public async Task<ServiceResponse> Create(GroupDTO requestModel)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
                 bool isExists = await _context.Groups.AnyAsync(x => x.GroupName == requestModel.GroupName);
-                if (isExists) return new APIResponse
+                if (isExists) return new ServiceResponse
                 {
                     Success = false,
                     Message = "GroupName is exists in system",
@@ -63,7 +63,7 @@ namespace FDMS_API.Services.Implementations
                         if (result1 > 0)
                         {
                             await transaction.CommitAsync();
-                            return new APIResponse
+                            return new ServiceResponse
                             {
                                 Success = true,
                                 Message = "Create group and group users success",
@@ -72,7 +72,7 @@ namespace FDMS_API.Services.Implementations
                         }
                         else
                         {
-                            return new APIResponse
+                            return new ServiceResponse
                             {
                                 Success = false,
                                 Message = "An error",
@@ -81,7 +81,7 @@ namespace FDMS_API.Services.Implementations
                         }
                     }
                     await transaction.CommitAsync();
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Create group success",
@@ -90,7 +90,7 @@ namespace FDMS_API.Services.Implementations
                 }
                 else
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "Creae Group failed",
@@ -101,7 +101,7 @@ namespace FDMS_API.Services.Implementations
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "An error",
@@ -111,7 +111,7 @@ namespace FDMS_API.Services.Implementations
             }
         }
 
-        public async Task<APIResponse> Get(int? pageSize,int? currentPage)
+        public async Task<ServiceResponse> Get(int? pageSize,int? currentPage)
         {
             var listGroup = await _context.Groups.ProjectTo<GetGroups>(_mapper.ConfigurationProvider).ToListAsync();
             if (pageSize.HasValue && currentPage.HasValue)
@@ -121,7 +121,7 @@ namespace FDMS_API.Services.Implementations
                 var cP = currentPage.Value;
                 var paginatedResult = listGroup.Pagination(pS, cP);
 
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = true,
                     Message = "Get groups success",
@@ -129,7 +129,7 @@ namespace FDMS_API.Services.Implementations
                     StatusCode = 200
                 };
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get groups success",
@@ -138,7 +138,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> GetByID(int groupID)
+        public async Task<ServiceResponse> GetByID(int groupID)
         {
             var group = await _context.Groups.Where(x=>x.GroupID==groupID)
 
@@ -159,13 +159,13 @@ namespace FDMS_API.Services.Implementations
 
                 .FirstOrDefaultAsync();
             if(group == null)
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Not found group",
                     StatusCode = 404
                 };
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get group success",
@@ -174,14 +174,14 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> Update(int groupID, GroupDTO requestModel)
+        public async Task<ServiceResponse> Update(int groupID, GroupDTO requestModel)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
                 var group = await _context.Groups.FindAsync(groupID);
                 if (group == null)
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "Not found group",
@@ -224,7 +224,7 @@ namespace FDMS_API.Services.Implementations
                 if (result > 0)
                 {
                     await transaction.CommitAsync();
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Group updated successfully",
@@ -233,7 +233,7 @@ namespace FDMS_API.Services.Implementations
                 }
                 else
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "Group updated failed",
@@ -245,7 +245,7 @@ namespace FDMS_API.Services.Implementations
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = true,
                     Message = ex.Message,

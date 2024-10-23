@@ -23,7 +23,7 @@ namespace FDMS_API.Services.Implementations
             _userService = userService;
         }
 
-        public async Task<APIResponse> CreateNewFlight(FlightDTO model)
+        public async Task<ServiceResponse> CreateNewFlight(FlightDTO model)
         {
             var newFlight = _mapper.Map<Flight>(model);
             newFlight.UserID = _userService.GetUserId();
@@ -31,14 +31,14 @@ namespace FDMS_API.Services.Implementations
             var result = await _context.SaveChangesAsync();
             if(result > 0)
             {
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = true,
                     Message = "Created flight",
                     StatusCode = 201
                 };
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = false,
                 Message = "Create flight failed",
@@ -46,7 +46,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> Get(string? search, string? flightNo, DateOnly? flightDate)
+        public async Task<ServiceResponse> Get(string? search, string? flightNo, DateOnly? flightDate)
         {
             var currentDate = DateOnly.FromDateTime(DateTime.Now);
             var currentTime = TimeOnly.FromDateTime(DateTime.Now);
@@ -77,7 +77,7 @@ namespace FDMS_API.Services.Implementations
                    (f.FlightDate == currentDate && f.ArrivalTime < currentTime)
             }).ToListAsync();
 
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get flights success",
@@ -86,7 +86,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> GetCurrentFlight()
+        public async Task<ServiceResponse> GetCurrentFlight()
         {
             var currentFlight = await _context.Flights
                 .Where(x => x.FlightDate == DateOnly.FromDateTime(DateTime.Now))
@@ -102,7 +102,7 @@ namespace FDMS_API.Services.Implementations
                     ReturnFiles = f.Documents.Where(x => x.Version != (decimal)1.0).Count()
                                     + f.Documents.SelectMany(d => d.Versions).Count()
                 }).ToListAsync();
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get current flight success",

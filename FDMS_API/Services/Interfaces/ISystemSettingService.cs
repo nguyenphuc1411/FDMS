@@ -6,7 +6,7 @@ namespace FDMS_API.Services.Interfaces
 {
     public interface ISystemSettingService
     {
-        Task<APIResponse> UpdateSystemSetting(SettingDTO systemSetting);
-        Task<APIResponse> GetSystemSetting();
+        Task<ServiceResponse> UpdateSystemSetting(SettingDTO systemSetting);
+        Task<ServiceResponse> GetSystemSetting();
     }
 }

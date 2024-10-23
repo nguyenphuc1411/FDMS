@@ -1,4 +1,6 @@
 ﻿using FDMS_API.Configurations.CustomAuthorize.Admin;
+using FDMS_API.Configurations.CustomAuthorize.CanEdit;
+using FDMS_API.Configurations.CustomAuthorize.CanRead;
 using FDMS_API.Configurations.Mappings;
 using FDMS_API.Configurations.Middlewares;
 using FDMS_API.Data;
@@ -44,17 +46,26 @@ builder.Services.AddScoped<ITypeService, TypeService>();
 
 builder.Services.AddScoped<IDocumentService, DocumentService>();
 
-builder.Services.AddScoped<IConfirmService, ConfirmService>();
+builder.Services.AddScoped<IReportService, ReportService>();
 
 // Đăng ký custom authorization handler
 builder.Services.AddScoped<IAuthorizationHandler, AdminAuthorizationHandler>();
-
+builder.Services.AddScoped<IAuthorizationHandler, EditAuthorizationHandler>();
+builder.Services.AddScoped<IAuthorizationHandler, ReadAuthorizationHandler>();
 // Khai báo các Custom Authorization
 builder.Services.AddAuthorization(opt =>
 {
     opt.AddPolicy("RequireAdmin", policy =>
     {
         policy.AddRequirements(new AdminRequirement());
+    });
+    opt.AddPolicy("RequireEditPermission", policy =>
+    {
+        policy.AddRequirements(new EditRequirement());
+    });
+    opt.AddPolicy("RequireReadPermission", policy =>
+    {
+        policy.AddRequirements(new ReadRequirement());
     });
 });
 
