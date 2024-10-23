@@ -19,19 +19,19 @@ namespace FDMS_API.Services.Implementations
         }
 
 
-        public async Task<APIResponse> GetSystemSetting()
+        public async Task<ServiceResponse> GetSystemSetting()
         {
             var setting = await _context.SystemSettings.FirstOrDefaultAsync();
             if (setting == null)
             {
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Not found setting",
                     StatusCode = 404
                 };
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get setting success",
@@ -40,7 +40,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> UpdateSystemSetting(SettingDTO systemSetting)
+        public async Task<ServiceResponse> UpdateSystemSetting(SettingDTO systemSetting)
         {
 
             var settingCurrent = await _context.SystemSettings.FirstOrDefaultAsync();
@@ -60,7 +60,7 @@ namespace FDMS_API.Services.Implementations
                     var result = await _context.SaveChangesAsync();
                     if (result > 0)
                     {
-                        return new APIResponse()
+                        return new ServiceResponse()
                         {
                             Success = true,
                             Message = "Updated setting",
@@ -69,7 +69,7 @@ namespace FDMS_API.Services.Implementations
                     }
                     else
                     {
-                        return new APIResponse()
+                        return new ServiceResponse()
                         {
                             Success = false,
                             Message = "Update failed",
@@ -79,7 +79,7 @@ namespace FDMS_API.Services.Implementations
                 }
                 else
                 {
-                    return new APIResponse()
+                    return new ServiceResponse()
                     {
                         Success = false,
                         Message = "An error while uploading",
@@ -106,7 +106,7 @@ namespace FDMS_API.Services.Implementations
                     var result = await _context.SaveChangesAsync();
                     if (result > 0)
                     {
-                        return new APIResponse()
+                        return new ServiceResponse()
                         {
                             Success = true,
                             Message = "Created setting",
@@ -115,7 +115,7 @@ namespace FDMS_API.Services.Implementations
                     }
                     else
                     {
-                        return new APIResponse()
+                        return new ServiceResponse()
                         {
                             Success = false,
                             Message = "Create failed",
@@ -125,7 +125,7 @@ namespace FDMS_API.Services.Implementations
                 }
                 else
                 {
-                    return new APIResponse()
+                    return new ServiceResponse()
                     {
                         Success = false,
                         Message = "An error while uploading",

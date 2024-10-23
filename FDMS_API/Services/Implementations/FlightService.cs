@@ -99,7 +99,8 @@ namespace FDMS_API.Services.Implementations
                     ArrivalTime = f.ArrivalTime,
                     DepartureTime = f.DepartureTime,
                     SendFiles = f.Documents.Where(x=>x.Version== (decimal)1.0).Count(),
-                    ReturnFiles = f.Documents.Where(x => x.Version != (decimal)1.0).Count(),
+                    ReturnFiles = f.Documents.Where(x => x.Version != (decimal)1.0).Count()
+                                    + f.Documents.SelectMany(d => d.Versions).Count()
                 }).ToListAsync();
             return new APIResponse
             {

@@ -5,12 +5,12 @@ namespace FDMS_API.Services.Interfaces
 {
     public interface ITypeService
     {
-        Task<APIResponse> Create(TypeDTO requestModel);
+        Task<ServiceResponse> Create(TypeDTO requestModel);
 
-        Task<APIResponse> Update(int typeID, TypeDTO requestModel);
+        Task<ServiceResponse> Update(int typeID, TypeDTO requestModel);
 
-        Task<APIResponse> Get(int? pageSize, int? currentPage);
+        Task<ServiceResponse> Get(int? pageSize, int? currentPage);
 
-        Task<APIResponse> GetByID(int typeID);
+        Task<ServiceResponse> GetByID(int typeID);
     }
 }

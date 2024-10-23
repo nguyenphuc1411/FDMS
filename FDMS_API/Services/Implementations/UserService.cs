@@ -24,7 +24,7 @@ namespace FDMS_API.Services.Implementations
             _mapper = mapper;
         }
 
-        public async Task<APIResponse> TerminateUser(List<int> userIDs)
+        public async Task<ServiceResponse> TerminateUser(List<int> userIDs)
         {
             try
             {
@@ -38,14 +38,14 @@ namespace FDMS_API.Services.Implementations
                     var result = await _context.SaveChangesAsync();
                     if (result > 0)
                     {
-                        return new APIResponse
+                        return new ServiceResponse
                         {
                             Success = true,
                             Message = "Terminated users success",
                             StatusCode = 200
                         };
                     }
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "Terminate users failed",
@@ -53,7 +53,7 @@ namespace FDMS_API.Services.Implementations
                     };
 
                 }
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Users is not exists",
@@ -62,7 +62,7 @@ namespace FDMS_API.Services.Implementations
             }
             catch (Exception ex)
             {
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = ex.Message,
@@ -71,7 +71,7 @@ namespace FDMS_API.Services.Implementations
             }
         }
 
-        public async Task<APIResponse> RestoreAccess(List<int> userIDs)
+        public async Task<ServiceResponse> RestoreAccess(List<int> userIDs)
         {
             var users = await _context.Users.Where(x => userIDs.Contains(x.UserID) && x.IsTerminated == true).ToListAsync();
             if (users.Count > 0)
@@ -83,14 +83,14 @@ namespace FDMS_API.Services.Implementations
                 var result = await _context.SaveChangesAsync();
                 if (result > 0)
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Restore access users success",
                         StatusCode = 200
                     };
                 }
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Restore users failed",
@@ -98,7 +98,7 @@ namespace FDMS_API.Services.Implementations
                 };
 
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = false,
                 Message = "Users is not exists",
@@ -127,7 +127,7 @@ namespace FDMS_API.Services.Implementations
             return user;
         }
 
-        public async Task<APIResponse> GetUsers(int? pageSize, int? currentPage)
+        public async Task<ServiceResponse> GetUsers(int? pageSize, int? currentPage)
         {
             var users = await _context.Users.Where(x=>x.IsTerminated==false)
               .Select(t => new GetUser
@@ -145,7 +145,7 @@ namespace FDMS_API.Services.Implementations
                 var cP = currentPage.Value;
                 var paginatedResult = users.Pagination(pS, cP);
 
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = true,
                     Message = "Get users success",
@@ -153,7 +153,7 @@ namespace FDMS_API.Services.Implementations
                     StatusCode = 200
                 };
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get users success",
@@ -162,7 +162,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> GetTerminatedUsers()
+        public async Task<ServiceResponse> GetTerminatedUsers()
         {
             var users = await _context.Users.Where(x => x.IsTerminated == true)
               .Select(t => new GetUser
@@ -173,7 +173,7 @@ namespace FDMS_API.Services.Implementations
                   Role = t.Role
               })
               .ToListAsync();
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get terminated users success",
@@ -182,13 +182,13 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> CreateUser(UserDTO userDTO)
+        public async Task<ServiceResponse> CreateUser(UserDTO userDTO)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
                 var isExistsEmail = await _context.Users.FirstOrDefaultAsync(x => x.Email == userDTO.Email);
-                if (isExistsEmail != null) return new APIResponse
+                if (isExistsEmail != null) return new ServiceResponse
                 {
                     Success = false,
                     Message = "Email already exists in system",
@@ -221,7 +221,7 @@ namespace FDMS_API.Services.Implementations
                         if(result1 > 0)
                         {
                             await transaction.CommitAsync();
-                            return new APIResponse
+                            return new ServiceResponse
                             {
                                 Success = true,
                                 Message = "Create user success",
@@ -229,7 +229,7 @@ namespace FDMS_API.Services.Implementations
                             };
                         }
                         await transaction.RollbackAsync();
-                        return new APIResponse
+                        return new ServiceResponse
                         {
                             Success = false,
                             Message = "Create user failed",
@@ -237,14 +237,14 @@ namespace FDMS_API.Services.Implementations
                         };
                     }
                     await transaction.CommitAsync();
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Create user success",
                         StatusCode = 201
                     };
                 }
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Create user failed",
@@ -255,7 +255,7 @@ namespace FDMS_API.Services.Implementations
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = ex.Message,
@@ -264,7 +264,7 @@ namespace FDMS_API.Services.Implementations
             }
         }
 
-        public async Task<APIResponse> UpdateUser(int userID,UserDTO userDTO)
+        public async Task<ServiceResponse> UpdateUser(int userID,UserDTO userDTO)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
@@ -272,7 +272,7 @@ namespace FDMS_API.Services.Implementations
                 var user = await _context.Users.FindAsync(userID);
 
                 if (user == null)
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = $"Not found user have ID{userID}",
@@ -305,7 +305,7 @@ namespace FDMS_API.Services.Implementations
                 if (result > 0)
                 {
                     await transaction.CommitAsync();
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Update user success",
@@ -313,7 +313,7 @@ namespace FDMS_API.Services.Implementations
                     };
                 }
                 await transaction.RollbackAsync();
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Update user falied",
@@ -324,7 +324,7 @@ namespace FDMS_API.Services.Implementations
             catch(Exception ex)
             {
                 await transaction.RollbackAsync();
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = ex.Message,
@@ -334,7 +334,7 @@ namespace FDMS_API.Services.Implementations
             }
         }
 
-        public async Task<APIResponse> ChangeOwner(ChangeOwner changeOwner)
+        public async Task<ServiceResponse> ChangeOwner(ChangeOwner changeOwner)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
@@ -343,7 +343,7 @@ namespace FDMS_API.Services.Implementations
                 var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == changeOwner.Email);
                 if (user == null)
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = $"Email {changeOwner.Email} is not exists in system",
@@ -356,7 +356,7 @@ namespace FDMS_API.Services.Implementations
                     {
                         if (!changeOwner.ConfirmPassword.VerifyPassword(currentOwner.PasswordHash))
                         {
-                            return new APIResponse
+                            return new ServiceResponse
                             {
                                 Success = false,
                                 Message = "Confirm Password is incorrect",
@@ -372,7 +372,7 @@ namespace FDMS_API.Services.Implementations
                         if (result > 0)
                         {
                             await transaction.CommitAsync();
-                            return new APIResponse
+                            return new ServiceResponse
                             {
                                 Success = true,
                                 Message = "Change owner success",
@@ -380,7 +380,7 @@ namespace FDMS_API.Services.Implementations
                             };
                         }
                         await transaction.RollbackAsync();
-                        return new APIResponse
+                        return new ServiceResponse
                         {
                             Success = false,
                             Message = "An Error",
@@ -388,7 +388,7 @@ namespace FDMS_API.Services.Implementations
                         };
                     }
 
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Not found owner",
@@ -398,7 +398,7 @@ namespace FDMS_API.Services.Implementations
             catch(Exception ex)
             {
                 await transaction.RollbackAsync();
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = ex.Message,

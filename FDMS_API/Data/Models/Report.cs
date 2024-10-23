@@ -7,7 +7,7 @@ namespace FDMS_API.Data.Models
       
         [Column(TypeName ="varchar(255)")]
         public string SignatureURL { get; set; }
-        public DateTime Confirmed_At { get; set; } = DateTime.Now;
+        public DateTime ReportedAt { get; set; } = DateTime.Now;
 
         // Foreign Property
         public int UserID { get; set; }

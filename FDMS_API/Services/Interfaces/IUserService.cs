@@ -10,12 +10,12 @@ namespace FDMS_API.Services.Interfaces
         int GetUserId();
         Task<GetUser> GetCurrentUserDTO();
         Task<User> GetCurrentUser();
-        Task<APIResponse> TerminateUser(List<int> userIDs);
-        Task<APIResponse> RestoreAccess(List<int> userIDs);
-        Task<APIResponse> GetUsers(int? pageSize, int? currentPage);
-        Task<APIResponse> GetTerminatedUsers();
-        Task<APIResponse> CreateUser(UserDTO userDTO);
-        Task<APIResponse> UpdateUser(int userID,UserDTO userDTO);
-        Task<APIResponse> ChangeOwner(ChangeOwner changeOwner);
+        Task<ServiceResponse> TerminateUser(List<int> userIDs);
+        Task<ServiceResponse> RestoreAccess(List<int> userIDs);
+        Task<ServiceResponse> GetUsers(int? pageSize, int? currentPage);
+        Task<ServiceResponse> GetTerminatedUsers();
+        Task<ServiceResponse> CreateUser(UserDTO userDTO);
+        Task<ServiceResponse> UpdateUser(int userID,UserDTO userDTO);
+        Task<ServiceResponse> ChangeOwner(ChangeOwner changeOwner);
     }
 }

@@ -22,6 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Documents\Original\" />
+    <Folder Include="wwwroot\Documents\Updated\" />
     <Folder Include="wwwroot\Images\" />
     <Folder Include="wwwroot\Images\Logo\" />
     <Folder Include="wwwroot\Documents\" />

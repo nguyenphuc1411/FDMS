@@ -29,12 +29,12 @@ namespace FDMS_API.Services.Implementations
             _userService = userService;
         }
 
-        public async Task<APIResponse> Login(LoginDTO login)
+        public async Task<ServiceResponse> Login(LoginDTO login)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == login.Email);
             if (user == null)
             {
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "The user is not exists",
@@ -45,7 +45,7 @@ namespace FDMS_API.Services.Implementations
             {
                 if (user.IsTerminated == true)
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "This account is terminated",
@@ -87,7 +87,7 @@ namespace FDMS_API.Services.Implementations
                         await _context.UserTokens.AddAsync(newUserToken);
                     }              
                     await _context.SaveChangesAsync();
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Login success",
@@ -97,7 +97,7 @@ namespace FDMS_API.Services.Implementations
                 }
                 else
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "Email or Password incorrect",
@@ -107,7 +107,7 @@ namespace FDMS_API.Services.Implementations
             }
         }
 
-        public async Task<APIResponse> RefreshToken(string refreshToken)
+        public async Task<ServiceResponse> RefreshToken(string refreshToken)
         {
             var userToken = await _context.UserTokens.FirstOrDefaultAsync(x => x.Token == refreshToken
             && x.TokenType == "REFRESH TOKEN" && x.ExpirationDate >= DateTime.Now);
@@ -120,7 +120,7 @@ namespace FDMS_API.Services.Implementations
                     RefreshToken = refreshToken,
                     AccessTokenExpiration = userToken.ExpirationDate
                 };
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = true,
                     Message = "Refresh token success",
@@ -128,7 +128,7 @@ namespace FDMS_API.Services.Implementations
                     StatusCode = 200
                 };
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = false,
                 Message = "Unauthorized",
@@ -136,11 +136,11 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> RequestForgotPassword(ForgotPassword request)
+        public async Task<ServiceResponse> RequestForgotPassword(ForgotPassword request)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
             if (user == null)
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Email is not exists in system",
@@ -179,7 +179,7 @@ namespace FDMS_API.Services.Implementations
                     var result = await _context.SaveChangesAsync();
                     if (result > 0)
                     {
-                        return new APIResponse
+                        return new ServiceResponse
                         {
                             Success = true,
                             Message = "Send mail success",
@@ -188,7 +188,7 @@ namespace FDMS_API.Services.Implementations
                     }
                     else
                     {
-                        return new APIResponse
+                        return new ServiceResponse
                         {
                             Success = false,
                             Message = "Something went wrong, please try again!",
@@ -198,7 +198,7 @@ namespace FDMS_API.Services.Implementations
                 }
                 else
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "Send mail failed, please try again!",
@@ -214,7 +214,7 @@ namespace FDMS_API.Services.Implementations
             {
                 var remainTime = (int)Math.Ceiling((newestToken.ExpirationDate - DateTime.Now).TotalMinutes);
                 // Chưa hết hạn token cũ
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = $"Already send mail, try again after {remainTime} minutes!",
@@ -245,7 +245,7 @@ namespace FDMS_API.Services.Implementations
                 var result = await _context.SaveChangesAsync();
                 if (result > 0)
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Send mail success",
@@ -254,7 +254,7 @@ namespace FDMS_API.Services.Implementations
                 }
                 else
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "Something went wrong, please try again!",
@@ -264,7 +264,7 @@ namespace FDMS_API.Services.Implementations
             }
             else
             {
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Send mail failed, please try again!",
@@ -273,13 +273,13 @@ namespace FDMS_API.Services.Implementations
             }
         }      
 
-        public async Task<APIResponse> ResetPassword(ResetPassword request)
+        public async Task<ServiceResponse> ResetPassword(ResetPassword request)
         {
             var userToken = await _context.UserTokens.FirstOrDefaultAsync(x => x.TokenType == "FORGOT PASSWORD"
             && x.ExpirationDate > DateTime.Now && x.Token == request.Token && x.Email == request.Email && x.IsUsed == false);
 
             if (userToken == null)
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Invalid request",
@@ -296,14 +296,14 @@ namespace FDMS_API.Services.Implementations
                 userToken.IsUsed = true;
                 _context.UserTokens.Update(userToken);
                 await _context.SaveChangesAsync();
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = true,
                     Message = "Reset password success",
                     StatusCode = 200
                 };
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = false,
                 Message = "Reset password failed, please try again",
@@ -311,7 +311,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> ChangePassword(ChangePassword request)
+        public async Task<ServiceResponse> ChangePassword(ChangePassword request)
         {
             var user = await _userService.GetCurrentUser();
 
@@ -323,21 +323,21 @@ namespace FDMS_API.Services.Implementations
                 var result = await _context.SaveChangesAsync(); 
                 if (result>0)
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Change password success",
                         StatusCode = 200
                     };
                 }
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = true,
                     Message = "Change password failed, please try again",
                     StatusCode = 400
                 };
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = false,
                 Message = "Change password failed, please try again",

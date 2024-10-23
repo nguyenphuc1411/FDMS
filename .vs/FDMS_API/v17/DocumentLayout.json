@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "D:\\Intern\\FDMS_API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\implementations\\documentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\implementations\\documentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\interfaces\\idocumentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\interfaces\\idocumentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\controllers\\documentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\controllers\\documentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\models\\dtos\\document\\getdocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\models\\dtos\\document\\getdocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\models\\dtos\\document\\versiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\models\\dtos\\document\\versiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\configurations\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\configurations\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\data\\models\\versiondocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\data\\models\\versiondocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,8 +35,68 @@
       "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\data\\models\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Intern\\FDMS_API\\FDMS_API\\Migrations\\20241022141054_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FDMS_API\\Migrations\\20241022141054_update.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\data\\models\\documentpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\data\\models\\documentpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\models\\dtos\\document\\getrecentlydocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\models\\dtos\\document\\getrecentlydocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\models\\dtos\\document\\useruploaddocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\models\\dtos\\document\\useruploaddocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\implementations\\flightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\implementations\\flightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\models\\dtos\\document\\adminuploaddocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\models\\dtos\\document\\adminuploaddocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\interfaces\\isystemsettingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\interfaces\\isystemsettingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\implementations\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\implementations\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\controllers\\flightscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\controllers\\flightscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\data\\models\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\data\\models\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\interfaces\\iflightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\interfaces\\iflightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\implementations\\fileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\implementations\\fileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\models\\responsemodel\\uploadfileresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\models\\responsemodel\\uploadfileresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\interfaces\\ifileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\interfaces\\ifileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\interfaces\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\interfaces\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\interfaces\\itypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\interfaces\\itypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +105,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\data\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\data\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\implementations\\documentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\implementations\\documentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,16 +119,8 @@
       "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\data\\models\\groupuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\data\\models\\documentpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\data\\models\\documentpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\controllers\\flightscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\controllers\\flightscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,10 +143,6 @@
       "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\models\\dtos\\user\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\configurations\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\configurations\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\controllers\\typescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\controllers\\typescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -87,28 +155,8 @@
       "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\controllers\\documentpermissionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\controllers\\documentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\controllers\\documentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\interfaces\\idocumentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\interfaces\\idocumentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\models\\dtos\\document\\getrecentlydocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\models\\dtos\\document\\getrecentlydocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|d:\\intern\\fdms_api\\fdms_api\\models\\dtos\\document\\getdocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D028FFB6-ABA0-46DA-9A05-4ED799524826}|FDMS_API\\FDMS_API.csproj|solutionrelative:fdms_api\\models\\dtos\\document\\getdocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -118,7 +166,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -129,116 +177,86 @@
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "20241022141054_update.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Migrations\\20241022141054_update.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Migrations\\20241022141054_update.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Migrations\\20241022141054_update.cs",
-              "RelativeToolTip": "FDMS_API\\Migrations\\20241022141054_update.cs",
-              "ViewState": "AQIAAHABAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "DocumentService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\DocumentService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Implementations\\DocumentService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\DocumentService.cs*",
+              "RelativeToolTip": "FDMS_API\\Services\\Implementations\\DocumentService.cs*",
+              "ViewState": "AQIAABUBAAAAAAAAAAAwwCUBAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:10:54.544Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Group.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Group.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\Group.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Group.cs",
-              "RelativeToolTip": "FDMS_API\\Data\\Models\\Group.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:09:24.018Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Data\\AppDbContext.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "FDMS_API\\Data\\AppDbContext.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBAAAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:02:44.226Z",
+              "WhenOpened": "2024-10-20T14:23:25.632Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Permission.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Permission.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\Permission.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Permission.cs",
-              "RelativeToolTip": "FDMS_API\\Data\\Models\\Permission.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:02:41.297Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GroupUser.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\GroupUser.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\GroupUser.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\GroupUser.cs",
-              "RelativeToolTip": "FDMS_API\\Data\\Models\\GroupUser.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:02:39.818Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\User.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\User.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\User.cs",
-              "RelativeToolTip": "FDMS_API\\Data\\Models\\User.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAwwB0AAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:01:15.254Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Document.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Document.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\Document.cs",
               "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Document.cs",
               "RelativeToolTip": "FDMS_API\\Data\\Models\\Document.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACAAAABCAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAADwvx4AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T13:55:11.951Z",
+              "WhenOpened": "2024-10-23T12:03:27.903Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "VersionDocument.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\VersionDocument.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\VersionDocument.cs",
               "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\VersionDocument.cs",
               "RelativeToolTip": "FDMS_API\\Data\\Models\\VersionDocument.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAA8AAABAAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T13:57:24.906Z",
+              "WhenOpened": "2024-10-23T13:24:05.83Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
+              "Title": "GetDocuments.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\GetDocuments.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Models\\DTOs\\Document\\GetDocuments.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\GetDocuments.cs",
+              "RelativeToolTip": "FDMS_API\\Models\\DTOs\\Document\\GetDocuments.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:16:47.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IDocumentService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IDocumentService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Interfaces\\IDocumentService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IDocumentService.cs",
+              "RelativeToolTip": "FDMS_API\\Services\\Interfaces\\IDocumentService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:22:55.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DocumentsController.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Controllers\\DocumentsController.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Controllers\\DocumentsController.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Controllers\\DocumentsController.cs",
+              "RelativeToolTip": "FDMS_API\\Controllers\\DocumentsController.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAiwDcAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:25:34.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "DocumentPermission.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\DocumentPermission.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\DocumentPermission.cs",
@@ -251,20 +269,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DocumentService.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\DocumentService.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Services\\Implementations\\DocumentService.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\DocumentService.cs",
-              "RelativeToolTip": "FDMS_API\\Services\\Implementations\\DocumentService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAABaAAAA",
+              "DocumentIndex": 4,
+              "Title": "VersionDTO.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\VersionDTO.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Models\\DTOs\\Document\\VersionDTO.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\VersionDTO.cs",
+              "RelativeToolTip": "FDMS_API\\Models\\DTOs\\Document\\VersionDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:23:25.632Z",
+              "WhenOpened": "2024-10-22T14:43:18.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Configurations\\Mappings\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Configurations\\Mappings\\MappingProfile.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Configurations\\Mappings\\MappingProfile.cs",
+              "RelativeToolTip": "FDMS_API\\Configurations\\Mappings\\MappingProfile.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBkAAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T13:50:54.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GetRecentlyDocuments.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\GetRecentlyDocuments.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Models\\DTOs\\Document\\GetRecentlyDocuments.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\GetRecentlyDocuments.cs",
+              "RelativeToolTip": "FDMS_API\\Models\\DTOs\\Document\\GetRecentlyDocuments.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:17:08.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserUploadDocument.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\UserUploadDocument.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Models\\DTOs\\Document\\UserUploadDocument.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\UserUploadDocument.cs",
+              "RelativeToolTip": "FDMS_API\\Models\\DTOs\\Document\\UserUploadDocument.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T12:30:32.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AdminUploadDocument.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\AdminUploadDocument.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Models\\DTOs\\Document\\AdminUploadDocument.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\AdminUploadDocument.cs",
+              "RelativeToolTip": "FDMS_API\\Models\\DTOs\\Document\\AdminUploadDocument.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:17:03.003Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "FlightService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\FlightService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Implementations\\FlightService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\FlightService.cs",
+              "RelativeToolTip": "FDMS_API\\Services\\Implementations\\FlightService.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAYwGkAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T13:16:55.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ISystemSettingService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\ISystemSettingService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Interfaces\\ISystemSettingService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\ISystemSettingService.cs",
+              "RelativeToolTip": "FDMS_API\\Services\\Interfaces\\ISystemSettingService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:19:57.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "FlightsController.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Controllers\\FlightsController.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Controllers\\FlightsController.cs",
@@ -277,7 +373,177 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
+              "Title": "GroupService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\GroupService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Implementations\\GroupService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\GroupService.cs",
+              "RelativeToolTip": "FDMS_API\\Services\\Implementations\\GroupService.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T12:53:23.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Report.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Report.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\Report.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Report.cs",
+              "RelativeToolTip": "FDMS_API\\Data\\Models\\Report.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T12:15:25.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UploadFileResult.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\ResponseModel\\UploadFileResult.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Models\\ResponseModel\\UploadFileResult.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\ResponseModel\\UploadFileResult.cs",
+              "RelativeToolTip": "FDMS_API\\Models\\ResponseModel\\UploadFileResult.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:26:28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IFlightService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IFlightService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Interfaces\\IFlightService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IFlightService.cs",
+              "RelativeToolTip": "FDMS_API\\Services\\Interfaces\\IFlightService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:20:05.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FileUploadService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\FileUploadService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Implementations\\FileUploadService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\FileUploadService.cs",
+              "RelativeToolTip": "FDMS_API\\Services\\Implementations\\FileUploadService.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA1wBwAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:26:06.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IFileUploadService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IFileUploadService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Interfaces\\IFileUploadService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IFileUploadService.cs",
+              "RelativeToolTip": "FDMS_API\\Services\\Interfaces\\IFileUploadService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:20:06.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Interfaces\\IUserService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "FDMS_API\\Services\\Interfaces\\IUserService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:34:40.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IGroupService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IGroupService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Interfaces\\IGroupService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IGroupService.cs",
+              "RelativeToolTip": "FDMS_API\\Services\\Interfaces\\IGroupService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:20:03.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ITypeService.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\ITypeService.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Services\\Interfaces\\ITypeService.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\ITypeService.cs",
+              "RelativeToolTip": "FDMS_API\\Services\\Interfaces\\ITypeService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:19:58.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "FDMS_API\\Data\\AppDbContext.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBAAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:02:44.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Group.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Group.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\Group.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Group.cs",
+              "RelativeToolTip": "FDMS_API\\Data\\Models\\Group.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:09:24.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\User.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\User.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\User.cs",
+              "RelativeToolTip": "FDMS_API\\Data\\Models\\User.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAwwB0AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:01:15.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Permission.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Permission.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\Permission.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\Permission.cs",
+              "RelativeToolTip": "FDMS_API\\Data\\Models\\Permission.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:02:41.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "GroupUser.cs",
+              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\GroupUser.cs",
+              "RelativeDocumentMoniker": "FDMS_API\\Data\\Models\\GroupUser.cs",
+              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Data\\Models\\GroupUser.cs",
+              "RelativeToolTip": "FDMS_API\\Data\\Models\\GroupUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:02:39.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
               "Title": "AdminAuthorizationHandler.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Configurations\\CustomAuthorize\\Admin\\AdminAuthorizationHandler.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Configurations\\CustomAuthorize\\Admin\\AdminAuthorizationHandler.cs",
@@ -289,7 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 33,
               "Title": "UsersController.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Controllers\\UsersController.cs",
@@ -301,7 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 29,
               "Title": "UserService.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Implementations\\UserService.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Services\\Implementations\\UserService.cs",
@@ -309,12 +575,11 @@
               "RelativeToolTip": "FDMS_API\\Services\\Implementations\\UserService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAMYAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T04:01:39.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-21T04:01:39.901Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 32,
               "Title": "AdminRequirement.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Configurations\\CustomAuthorize\\Admin\\AdminRequirement.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Configurations\\CustomAuthorize\\Admin\\AdminRequirement.cs",
@@ -326,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 34,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\User\\UserDTO.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Models\\DTOs\\User\\UserDTO.cs",
@@ -338,7 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 30,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Program.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Program.cs",
@@ -350,19 +615,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Configurations\\Mappings\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Configurations\\Mappings\\MappingProfile.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Configurations\\Mappings\\MappingProfile.cs",
-              "RelativeToolTip": "FDMS_API\\Configurations\\Mappings\\MappingProfile.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABEAAAA/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T04:01:23.863Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 35,
               "Title": "TypesController.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Controllers\\TypesController.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Controllers\\TypesController.cs",
@@ -374,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 38,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Controllers\\AuthController.cs",
@@ -386,7 +639,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 37,
               "Title": "DocumentPermissionsController.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Controllers\\DocumentPermissionsController.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Controllers\\DocumentPermissionsController.cs",
@@ -398,7 +651,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 36,
               "Title": "ConfirmationsController.cs",
               "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Controllers\\ConfirmationsController.cs",
               "RelativeDocumentMoniker": "FDMS_API\\Controllers\\ConfirmationsController.cs",
@@ -407,66 +660,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-21T03:27:19.831Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IUserService.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Services\\Interfaces\\IUserService.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IUserService.cs",
-              "RelativeToolTip": "FDMS_API\\Services\\Interfaces\\IUserService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:34:40.035Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "DocumentsController.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Controllers\\DocumentsController.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Controllers\\DocumentsController.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Controllers\\DocumentsController.cs",
-              "RelativeToolTip": "FDMS_API\\Controllers\\DocumentsController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAgAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:25:34.996Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "IDocumentService.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IDocumentService.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Services\\Interfaces\\IDocumentService.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Services\\Interfaces\\IDocumentService.cs",
-              "RelativeToolTip": "FDMS_API\\Services\\Interfaces\\IDocumentService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:22:55.213Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "GetRecentlyDocuments.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\GetRecentlyDocuments.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Models\\DTOs\\Document\\GetRecentlyDocuments.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\GetRecentlyDocuments.cs",
-              "RelativeToolTip": "FDMS_API\\Models\\DTOs\\Document\\GetRecentlyDocuments.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAxwAgAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:17:08.443Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "GetDocuments.cs",
-              "DocumentMoniker": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\GetDocuments.cs",
-              "RelativeDocumentMoniker": "FDMS_API\\Models\\DTOs\\Document\\GetDocuments.cs",
-              "ToolTip": "D:\\Intern\\FDMS_API\\FDMS_API\\Models\\DTOs\\Document\\GetDocuments.cs",
-              "RelativeToolTip": "FDMS_API\\Models\\DTOs\\Document\\GetDocuments.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:16:47.086Z"
             }
           ]
         }

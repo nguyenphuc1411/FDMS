@@ -23,7 +23,7 @@ namespace FDMS_API.Services.Implementations
             _mapper = mapper;
         }
 
-        public async Task<APIResponse> Create(TypeDTO requestModel)
+        public async Task<ServiceResponse> Create(TypeDTO requestModel)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
@@ -31,7 +31,7 @@ namespace FDMS_API.Services.Implementations
                 var isExists = await _context.Types.AnyAsync(x=>x.TypeName == requestModel.TypeName);
                 if (isExists)
                 {
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "Document type is exists in system",
@@ -66,7 +66,7 @@ namespace FDMS_API.Services.Implementations
                         if (result1 > 0)
                         {
                             await transaction.CommitAsync();
-                            return new APIResponse
+                            return new ServiceResponse
                             {
                                 Success = true,
                                 Message = "Create document type and permission success",
@@ -75,7 +75,7 @@ namespace FDMS_API.Services.Implementations
                         }
                         else
                         {
-                            return new APIResponse
+                            return new ServiceResponse
                             {
                                 Success = false,
                                 Message = "Create document type and permission failed",
@@ -86,7 +86,7 @@ namespace FDMS_API.Services.Implementations
                     else
                     {
                         await transaction.CommitAsync();
-                        return new APIResponse
+                        return new ServiceResponse
                         {
                             Success = true,
                             Message = "Create document type success",
@@ -94,7 +94,7 @@ namespace FDMS_API.Services.Implementations
                         };
                     }
                 }
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Create document type failed",
@@ -105,7 +105,7 @@ namespace FDMS_API.Services.Implementations
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "An error",
@@ -115,7 +115,7 @@ namespace FDMS_API.Services.Implementations
             }
         }
 
-        public async Task<APIResponse> Get(int? pageSize, int? currentPage)
+        public async Task<ServiceResponse> Get(int? pageSize, int? currentPage)
         {
             var listType = await _context.Types
                 .Select(t => new GetTypes
@@ -135,7 +135,7 @@ namespace FDMS_API.Services.Implementations
                 var cP = currentPage.Value;
                 var paginatedResult = listType.Pagination(pS, cP);
 
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = true,
                     Message = "Get types success",
@@ -143,7 +143,7 @@ namespace FDMS_API.Services.Implementations
                     StatusCode = 200
                 };
             }
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get types success",
@@ -152,7 +152,7 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> GetByID(int typeID)
+        public async Task<ServiceResponse> GetByID(int typeID)
         {
            var type = await _context.Types.Where(x=>x.TypeID == typeID)
                 .Select(t=>new GetType
@@ -170,13 +170,13 @@ namespace FDMS_API.Services.Implementations
 
                 }).FirstOrDefaultAsync();
             if (type == null)
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Not found type",
                     StatusCode = 404
                 };
-            return new APIResponse
+            return new ServiceResponse
             {
                 Success = true,
                 Message = "Get type success",
@@ -185,14 +185,14 @@ namespace FDMS_API.Services.Implementations
             };
         }
 
-        public async Task<APIResponse> Update(int typeID, TypeDTO requestModel)
+        public async Task<ServiceResponse> Update(int typeID, TypeDTO requestModel)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
                 var type = await _context.Types.FindAsync(typeID);
                 if (type == null)
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = false,
                         Message = "Not found document type",
@@ -227,14 +227,14 @@ namespace FDMS_API.Services.Implementations
                 if(result > 0)
                 {
                     await transaction.CommitAsync();
-                    return new APIResponse
+                    return new ServiceResponse
                     {
                         Success = true,
                         Message = "Update document type success",
                         StatusCode = 200
                     };
                 }
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = "Update document type failed",
@@ -245,7 +245,7 @@ namespace FDMS_API.Services.Implementations
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
-                return new APIResponse
+                return new ServiceResponse
                 {
                     Success = false,
                     Message = ex.Message,

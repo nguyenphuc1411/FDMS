@@ -8,9 +8,9 @@ namespace FDMS_API.Data.Models
         [Key]
         public int VersionID { get; set; }
         [Column(TypeName = "nvarchar(255)")]
-        public string Name { get; set; }
+        public string Title { get; set; }
         [Column(TypeName = "decimal(2,1)")]
-        public decimal VersionNumber { get; set; }
+        public decimal Version { get; set; }
         [Column(TypeName = "varchar(255)")]
         public string FilePath { get; set; }
         public DateTime UploadDate { get; set; } = DateTime.Now;

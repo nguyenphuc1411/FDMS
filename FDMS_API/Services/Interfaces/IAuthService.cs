@@ -6,14 +6,14 @@ namespace FDMS_API.Services.Interfaces
 {
     public interface IAuthService
     {
-        Task<APIResponse> Login(LoginDTO login);
+        Task<ServiceResponse> Login(LoginDTO login);
 
-        Task<APIResponse> RefreshToken(string refreshToken);
+        Task<ServiceResponse> RefreshToken(string refreshToken);
 
-        Task<APIResponse> RequestForgotPassword(ForgotPassword request);
+        Task<ServiceResponse> RequestForgotPassword(ForgotPassword request);
 
-        Task<APIResponse> ResetPassword(ResetPassword request);
+        Task<ServiceResponse> ResetPassword(ResetPassword request);
 
-        Task<APIResponse> ChangePassword(ChangePassword request);
+        Task<ServiceResponse> ChangePassword(ChangePassword request);
     }
 }

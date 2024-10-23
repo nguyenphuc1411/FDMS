@@ -8,14 +8,13 @@ namespace FDMS_API.Data.Models
         [Key]
         public int DocumentID { get; set; }
         [Column(TypeName = "nvarchar(255)")]
-        public string Name { get; set; }
+        public string Title { get; set; }
         [Column(TypeName = "decimal(2,1)")]
-        public decimal? Version {  get; set; }
+        public decimal Version {  get; set; }
         public string? Note {  get; set; }
         [Column(TypeName = "varchar(255)")]
         public string FilePath {  get; set; }
         public DateTime UploadDate { get; set; } = DateTime.Now;
-        public bool IsAdminUpload { get; set; } = true;
 
         // Foreign property
 
@@ -27,8 +26,6 @@ namespace FDMS_API.Data.Models
         public Type Type { get; set; }
         public User User { get; set; }
         public Flight Flight { get; set; }
-
-
         public ICollection<DocumentPermission> DocumentPermissions { get; set; }
         public ICollection<VersionDocument> Versions { get; set; }
     }

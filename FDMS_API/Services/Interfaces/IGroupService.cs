@@ -5,12 +5,12 @@ namespace FDMS_API.Services.Interfaces
 {
     public interface IGroupService
     {
-        Task<APIResponse> Create(GroupDTO requestModel);
+        Task<ServiceResponse> Create(GroupDTO requestModel);
 
-        Task<APIResponse> Update(int groupID,GroupDTO requestModel);
+        Task<ServiceResponse> Update(int groupID,GroupDTO requestModel);
 
-        Task<APIResponse> Get(int? pageSize,int? currentPage);
+        Task<ServiceResponse> Get(int? pageSize,int? currentPage);
 
-        Task<APIResponse> GetByID(int groupID);
+        Task<ServiceResponse> GetByID(int groupID);
     }
 }

@@ -44,6 +44,8 @@ builder.Services.AddScoped<ITypeService, TypeService>();
 
 builder.Services.AddScoped<IDocumentService, DocumentService>();
 
+builder.Services.AddScoped<IConfirmService, ConfirmService>();
+
 // Đăng ký custom authorization handler
 builder.Services.AddScoped<IAuthorizationHandler, AdminAuthorizationHandler>();
 
