@@ -6,11 +6,9 @@ namespace FDMS_API.Configurations.Middlewares
     public class GlobalExceptionHandler
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger<GlobalExceptionHandler> _logger;
-        public GlobalExceptionHandler(RequestDelegate next, ILogger<GlobalExceptionHandler> logger)
+        public GlobalExceptionHandler(RequestDelegate next)
         {
             _next = next;
-            _logger = logger;
         }
         public async Task InvokeAsync(HttpContext context)
         {
@@ -19,10 +17,7 @@ namespace FDMS_API.Configurations.Middlewares
                 await _next(context);
             }
             catch (Exception ex)
-            {
-                // Log ngoại lệ
-                _logger.LogError(ex, "An unhandled exception occurred.");
-
+            {        
                 await HandleExceptionAsync(context, ex);
             }
         }

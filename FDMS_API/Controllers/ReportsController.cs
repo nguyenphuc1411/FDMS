@@ -1,5 +1,6 @@
 ﻿using FDMS_API.Models.DTOs;
 using FDMS_API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ namespace FDMS_API.Controllers
         {
             _service = service;
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Report(ReportDTO reportDTO)
         {

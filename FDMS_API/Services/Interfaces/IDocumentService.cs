@@ -11,5 +11,8 @@ namespace FDMS_API.Services.Interfaces
         Task<ServiceResponse> UploadVersion(VersionDTO requestModel);
         Task<ServiceResponse> UserUpload(UserUploadDocument requestModel);
         Task<ServiceResponse> ViewDocs(int documentID);
+        Task<ServiceResponse> Delete(int documentID);
+        Task<ServiceResponse> GetDocumentByFlight(int flightID);
+        Task<ServiceResponse> ViewDocsForUser(int documentID);
     }
 }

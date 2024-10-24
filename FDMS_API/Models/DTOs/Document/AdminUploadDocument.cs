@@ -8,6 +8,6 @@ namespace FDMS_API.Models.DTOs.Document
         public IFormFile File { get; set; }
         public int TypeID { get; set; }
         public int FlightID { get; set; }
-        public List<int> GroupIDs { get; set; } // các quyền truy cập vào tài liệu
+        public List<int> GroupIDs { get; set; } 
     }
 }
