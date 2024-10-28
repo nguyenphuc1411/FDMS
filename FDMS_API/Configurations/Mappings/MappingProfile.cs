@@ -13,18 +13,17 @@ namespace FDMS_API.Configurations.Mappings
         public MappingProfile()
         {
             CreateMap<User, GetUser>().ReverseMap();
-            CreateMap<SystemSetting, SystemSetting>().ReverseMap();
             CreateMap<Flight, FlightDTO>().ReverseMap();
             CreateMap<Permission,PermissionDTO>().ReverseMap();
             CreateMap<Group, GetGroups>()
                .ForMember(dest => dest.Creator, src => src.MapFrom(x => x.User.Email))
-               .ForMember(dest => dest.TotalMembers, src => src.MapFrom(x => x.GroupUsers.Count()));
+               .ForMember(dest => dest.TotalMembers, src => src.MapFrom(x => x.GroupUsers.Count));
 
             CreateMap<Document, GetDocuments>()
                 .ForMember(dest => dest.Creator, src => src.MapFrom(x => x.User.Name))
                 .ForMember(dest => dest.FlightNo, src => src.MapFrom(x => x.Flight.FlightNo))
                 .ForMember(dest => dest.DocumentType, src => src.MapFrom(x => x.Type.TypeName));
-            CreateMap<Document, AdminUploadDocument>().ReverseMap();
+            CreateMap<Document, AdminUploadDocument>();
 
         }
     }
