@@ -37,7 +37,7 @@ namespace FDMS_API.Services.Implementations
                 return new ServiceResponse
                 {
                     Success = false,
-                    Message = "The user is not exists",
+                    Message = "The user is not exists in system",
                     StatusCode = 404
                 };
             }
@@ -90,7 +90,7 @@ namespace FDMS_API.Services.Implementations
                     return new ServiceResponse
                     {
                         Success = true,
-                        Message = "Login success",
+                        Message = "Login successfully",
                         Data = token,
                         StatusCode = 200
                     };
@@ -100,7 +100,7 @@ namespace FDMS_API.Services.Implementations
                     return new ServiceResponse
                     {
                         Success = false,
-                        Message = "Email or Password incorrect",
+                        Message = "Incorrect email or password. Please try again",
                         StatusCode = 400
                     };
                 }
@@ -123,7 +123,7 @@ namespace FDMS_API.Services.Implementations
                 return new ServiceResponse
                 {
                     Success = true,
-                    Message = "Refresh token success",
+                    Message = "Refresh token successfully",
                     Data = token,
                     StatusCode = 200
                 };
@@ -248,7 +248,7 @@ namespace FDMS_API.Services.Implementations
                     return new ServiceResponse
                     {
                         Success = true,
-                        Message = "Send mail success",
+                        Message = "Send mail successfully",
                         StatusCode = 200
                     };
                 }
@@ -299,7 +299,7 @@ namespace FDMS_API.Services.Implementations
                 return new ServiceResponse
                 {
                     Success = true,
-                    Message = "Reset password success",
+                    Message = "Reset password successfully",
                     StatusCode = 200
                 };
             }
@@ -326,7 +326,7 @@ namespace FDMS_API.Services.Implementations
                     return new ServiceResponse
                     {
                         Success = true,
-                        Message = "Change password success",
+                        Message = "Change password successfully",
                         StatusCode = 200
                     };
                 }
@@ -359,7 +359,7 @@ namespace FDMS_API.Services.Implementations
             var tokenDesciption = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddDays(1),
+                Expires = DateTime.UtcNow.AddMinutes(30),
                 SigningCredentials = creds
             };
             var token = jwtSecurityTokenHandler.CreateToken(tokenDesciption);

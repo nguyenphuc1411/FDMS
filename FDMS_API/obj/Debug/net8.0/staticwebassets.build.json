@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BJxyi64rKUVnW5IiD6ikYwEn3NBWvctCnYvL28CYnG8=",
+  "Hash": "j0YQpAWf8D6VsgYtYnUjQutjRbfkNUu81vEFjiO0ccM=",
   "Source": "FDMS_API",
   "BasePath": "_content/FDMS_API",
   "Mode": "Default",
@@ -245,6 +245,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\Logo\\fc651b41-a794-4ffd-8236-98e353cd8007.png"
     },
     {
+      "Identity": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Signature\\24c3500c-a5ba-41a5-a6f1-04c8f01b4dbc.png",
+      "SourceId": "FDMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\",
+      "BasePath": "_content/FDMS_API",
+      "RelativePath": "Images/Signature/24c3500c-a5ba-41a5-a6f1-04c8f01b4dbc.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Signature\\24c3500c-a5ba-41a5-a6f1-04c8f01b4dbc.png"
+    },
+    {
       "Identity": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Signature\\56f0f21c-bbde-4cb6-b4cd-258c4302a58f.png",
       "SourceId": "FDMS_API",
       "SourceType": "Discovered",
@@ -281,6 +300,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Signature\\93ce47b5-8112-40f6-ba99-66786122ae77.png"
+    },
+    {
+      "Identity": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Signature\\b6a0e8ad-66aa-4c4a-adcd-8668ed9eda98.png",
+      "SourceId": "FDMS_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\",
+      "BasePath": "_content/FDMS_API",
+      "RelativePath": "Images/Signature/b6a0e8ad-66aa-4c4a-adcd-8668ed9eda98.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Signature\\b6a0e8ad-66aa-4c4a-adcd-8668ed9eda98.png"
     },
     {
       "Identity": "D:\\Intern\\FDMS_API\\FDMS_API\\wwwroot\\Images\\Signature\\da29b743-554c-49d7-8c73-52b12c7abcb4.png",

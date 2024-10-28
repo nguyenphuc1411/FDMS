@@ -34,7 +34,7 @@ namespace FDMS_API.Services.Implementations
             if (document == null) return new ServiceResponse
             {
                 Success = false,
-                Message = "Not found document",
+                Message = "No document found with given ID",
                 StatusCode = 404
             };
             if (document.Version != (decimal)1.1 || document.UserID != userID)
@@ -114,28 +114,32 @@ namespace FDMS_API.Services.Implementations
         public async Task<ServiceResponse> GetDocumentByFlight(int flightID)
         {
             var documents = await _context.Documents
-            .Where(x => x.FlightID == flightID)
-            .Select(d => new
-            {
-                d.Type.TypeName,
-                LatestVersion = d.Versions
-                    .OrderByDescending(v => v.Version)
-                    .FirstOrDefault(),
-                Document = d 
-            })
-            .ToListAsync();
+       .Where(d => d.FlightID == flightID)
+       .Include(d => d.Versions) 
+       .ThenInclude(v => v.User)  
+       .Select(d => new
+       {
+           d.Type.TypeName,
+           LatestVersion = d.Versions
+               .OrderByDescending(v => v.Version)
+               .FirstOrDefault(),
+           Document = d
+       })
+       .ToListAsync();
 
             var results = documents.Select(doc => new
             {
-                doc.TypeName, 
+                doc.TypeName,
                 doc.Document.DocumentID,
-                Title = doc.LatestVersion != null ? doc.LatestVersion.Title : doc.Document.Title,
-                UploadDate = doc.LatestVersion != null ? doc.LatestVersion.UploadDate : doc.Document.UploadDate,
-                Version = doc.LatestVersion != null ? doc.LatestVersion.Version : doc.Document.Version,
-                Creator = doc.LatestVersion != null ? doc.LatestVersion.User?.Name : doc.Document.User?.Name, 
-                FilePath = doc.LatestVersion != null ? doc.LatestVersion.FilePath : doc.Document.FilePath, 
+                Title = doc.LatestVersion?.Title ?? doc.Document.Title, 
+                UploadDate = doc.LatestVersion?.UploadDate ?? doc.Document.UploadDate, 
+                Version = doc.LatestVersion?.Version ?? doc.Document.Version, 
+                Creator = doc.LatestVersion?.User?.Name ?? doc.Document.User?.Name ?? "Unknown",
+                FilePath = doc.LatestVersion?.FilePath ?? doc.Document.FilePath, 
                 IsVersion = doc.LatestVersion != null 
             }).ToList();
+
+
 
             return new ServiceResponse
             {
